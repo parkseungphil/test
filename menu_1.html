@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내일도맑음 - 공조덕트청소(닥트청소)</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; color: #333; }
+        .navbar-brand img { height: 50px; }
+        #header { background-color: #fff; border-bottom: 1px solid #eee; padding: 10px 0; }
+        #gnb .nav-link { color: #333; font-weight: bold; }
+        #gnb .nav-link:hover { color: #007bff; }
+        /* 활성화된 메뉴 항목 스타일 */
+        #gnb .nav-item.active > .nav-link {
+            color: #007bff; /* 파란색으로 변경 */
+            font-weight: bold;
+            border-bottom: 2px solid #007bff; /* 밑줄 추가 */
+        }
+        /* 드롭다운 메뉴 내 활성화된 항목 스타일 */
+        #gnb .dropdown-item.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1920x400?text=Duct+Cleaning') center center / cover no-repeat;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .hero-section h1 { font-size: 3em; margin-bottom: 20px; }
+        .hero-section p { font-size: 1.2em; }
+
+        .content-section { padding: 60px 0; }
+        .content-section h2 { font-size: 2.2em; margin-bottom: 30px; color: #007bff; text-align: center; }
+        .content-section h3 { font-size: 1.8em; margin-top: 40px; margin-bottom: 20px; color: #333; }
+        .content-section p { margin-bottom: 15px; }
+        .content-section ul { list-style: disc; margin-left: 20px; margin-bottom: 20px; }
+        .content-section ul li { margin-bottom: 8px; }
+        .method-card { border: 1px solid #eee; border-radius: 8px; padding: 25px; margin-bottom: 30px; text-align: center; transition: all 0.3s ease; }
+        .method-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: translateY(-5px); }
+        .method-card img { max-width: 100%; height: 200px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; }
+        .method-card h4 { font-size: 1.5em; color: #007bff; margin-bottom: 10px; }
+        .method-card p { font-size: 0.95em; color: #555; }
+        .highlight-box { background-color: #f8f9fa; border-left: 5px solid #007bff; padding: 20px; margin-top: 30px; margin-bottom: 30px; }
+        .highlight-box p { margin: 0; }
+
+        #footer { background-color: #343a40; color: #f8f9fa; padding: 40px 0; text-align: center; font-size: 0.9em; }
+        #footer a { color: #f8f9fa; text-decoration: none; }
+        #footer a:hover { color: #007bff; }
+
+		.aw_quickbanner {
+			padding: 5px 0; /* 상하 패딩을 5px로 줄이고 좌우는 0으로 유지 */
+		}	
+
+        /* 퀵 배너 스타일 */
+        .quick-float-banner {
+            position: fixed;
+            right: 20px; /* 오른쪽에서 20px 떨어진 위치 */
+            top: 50%; /* 화면 중앙에 위치 */
+            transform: translateY(-50%); /* 정확히 중앙 정렬 */
+            z-index: 1050; /* 다른 요소 위에 표시 */
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* 버튼 사이 간격 */
+        }
+        .quick-float-banner .btn-quick {
+            width: 120px; /* 버튼 너비 */
+            padding: 15px 10px;
+            border-radius: 10px; /* 둥근 모서리 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative; /* 아이콘 위치 조정을 위해 */
+            overflow: hidden; /* 내부 요소가 넘치지 않도록 */
+        }
+        .quick-float-banner .btn-quick:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 전화 문의 버튼 */
+        .quick-float-banner .btn-phone {
+            background-color: #28a745; /* 녹색 계열 */
+        }
+        .quick-float-banner .btn-phone i {
+            margin-right: 5px;
+            font-size: 1.2em;
+        }
+        .quick-float-banner .btn-phone .number {
+            font-size: 0.9em;
+            display: block;
+            margin-top: 3px;
+        }
+
+        /* 카카오톡 상담 버튼 */
+        .quick-float-banner .btn-kakao {
+            background-color: #ffe812; /* 카카오 노란색 */
+            color: #3c1e1e; /* 카카오 글자색 */
+            display: flex; /* Flexbox를 사용하여 내용 정렬 */
+            flex-direction: column; /* 세로 정렬 */
+            align-items: center; /* 가로 중앙 정렬 */
+            justify-content: center; /* 세로 중앙 정렬 */
+            height: 100%; /* 부모 높이에 맞춤 */
+        }
+        .quick-float-banner .btn-kakao i {
+            font-size: 1.5em; /* 아이콘 크기 조정 */
+            margin-bottom: 5px; /* 아이콘과 텍스트 사이 간격 */
+        }
+        .quick-float-banner .btn-kakao span {
+            font-size: 0.9em; /* 텍스트 크기 조정 */
+            white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+        }
+
+
+        /* 드롭다운 메뉴가 마우스 오버 시 보이도록 설정 */
+        @media (min-width: 992px) { /* 데스크탑에서만 적용 (모바일에서는 클릭 유지) */
+            .navbar-expand-lg .navbar-nav .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+            .navbar-expand-lg .navbar-nav .dropdown .dropdown-toggle::after {
+                display: none; /* 드롭다운 토글 아이콘 숨기기 (선택 사항) */
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            #gnb .navbar-nav { text-align: center; }
+            #gnb .nav-item.dropdown .dropdown-menu { width: 100%; text-align: center; }
+            .hero-section { padding: 50px 0; }
+            .hero-section h1 { font-size: 2.2em; }
+            .hero-section p { font-size: 1em; }
+            .content-section { padding: 40px 0; }
+            .content-section h2 { font-size: 1.8em; }
+            .content-section h3 { font-size: 1.5em; }
+            .method-card { padding: 15px; }
+            .method-card h4 { font-size: 1.2em; }
+
+            /* 모바일에서 퀵 배너 숨기기 또는 위치 조정 (선택 사항) */
+            .quick-float-banner {
+                right: 10px;
+                bottom: 10px;
+                top: auto; /* 상단 고정 해제 */
+                transform: none; /* 중앙 정렬 해제 */
+                flex-direction: row; /* 가로로 배치 */
+                width: calc(100% - 20px); /* 너비 조정 */
+                justify-content: center;
+                gap: 10px;
+            }
+            .quick-float-banner .btn-quick {
+                width: 48%; /* 너비 조정 */
+                font-size: 0.85em;
+                padding: 12px 8px;
+            }
+            .quick-float-banner .btn-kakao i {
+                font-size: 1.2em; /* 모바일에서 아이콘 크기 조정 */
+                margin-bottom: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container">
+            <nav id="gnb" class="navbar navbar-expand-lg navbar-light">
+                <h1><a class="navbar-brand" href="/">
+                    <img src="https://via.placeholder.com/150x50?text=YourLogo" alt="부성석 로고">
+                </a></h1>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown active"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAirDuct" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                공조덕트청소
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownAirDuct">
+                                <a class="dropdown-item active" href="duct_cleaning.html">공조덕트청소(닥트청소)</a> <a class="dropdown-item" href="air_conditioner_cleaning.html">공조기청소</a>
+                                <a class="dropdown-item" href="duct_coating.html">닥트코팅</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSpecial" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                특수청소(후드청소)
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownSpecial">
+                                <a class="dropdown-item" href="#">주방후드청소(덕트청소)</a>
+                                <a class="dropdown-item" href="#">화재복구청소(냄새제거)</a>
+                                <a class="dropdown-item" href="#">공장설비청소</a>
+                                <a class="dropdown-item" href="#">팬코일, 에어컨청소</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCases" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                시공사례
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownCases">
+                                <a class="dropdown-item" href="#">공조 닥트청소</a>
+                                <a class="dropdown-item" href="#">주방 후드청소</a>
+                                <a class="dropdown-item" href="#">화재 냄새제거청소</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownReviews" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                실제고객후기
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownReviews">
+                                <a class="dropdown-item" href="#">공조 닥트청소</a>
+                                <a class="dropdown-item" href="#">주방 후드청소</a>
+                                <a class="dropdown-item" href="#">화재 냄새제거청소</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAbout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                회사소개
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
+                                <a class="dropdown-item" href="#">회사소개 홈</a>
+                                <a class="dropdown-item" href="#">인사말/조직도/연혁</a>
+                                <a class="dropdown-item" href="#">인허가사항</a>
+                                <a class="dropdown-item" href="#">청소장비</a>
+                                <a class="dropdown-item" href="#">공사실적</a>
+                                <a class="dropdown-item" href="#">공조닥트 장비문의</a>
+                                <a class="dropdown-item" href="#">주방닥트 장비문의</a>
+                                <a class="dropdown-item" href="#">소자본 창업 컨설팅</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCustomer" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                고객센터
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownCustomer">
+                                <a class="dropdown-item" href="#">고객센터 홈</a>
+                                <a class="dropdown-item" href="#">빠른 견적문의</a>
+                                <a class="dropdown-item" href="#">전국지사 연락처</a>
+                                <a class="dropdown-item" href="#">공지사항</a>
+                                <a class="dropdown-item" href="#">자주묻는질문(FAQ)</a>
+                                <a class="dropdown-item" href="#">자료실</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold text-primary" href="tel:010-8504-2784">T. 010-8504-2784</a>
+                        </li>
+                    </ul>
+                    <button class="btn btn-outline-secondary ml-3" type="button" data-toggle="collapse" data-target="#searchWrap" aria-expanded="false" aria-controls="searchWrap">
+                        <i class="fas fa-search"></i> <span class="sr-only">검색</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="collapse" id="searchWrap">
+        <div class="bg-light p-4">
+            <div class="container">
+                <form class="form-inline justify-content-center">
+                    <input class="form-control mr-sm-2 w-50" type="search" placeholder="검색어를 입력하세요" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="aw_quickbanner text-center py-1 bg-info text-white">
+        <p>24시간 연중무휴 상담 가능 <a href="tel:010-8504-2784" class="text-white font-weight-bold">010-8504-2784</a></p>
+    </div>
+
+    <main id="main-content">
+        <section class="hero-section">
+            <div class="container">
+                <h1>공조 덕트 청소 (닥트 청소)</h1>
+                <p>쾌적하고 건강한 실내 공기를 위한 필수 선택!</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>공조 덕트 청소, 왜 중요할까요?</h2>
+                <p>
+                    공장, 빌딩, 교회, 클린룸 등 다양한 시설의 공조 시스템 내 닥트는 시간이 지남에 따라 먼지, 유해 물질, 곰팡이 등으로 오염됩니다. 이러한 오염은 실내 공기 질을 저하시켜 거주자의 건강 문제뿐만 아니라, 시스템 효율 저하 및 화재 위험을 증가시킬 수 있습니다.
+                </p>
+                <p>
+                    내일도맑음은 20년 이상의 노하우와 최신 장비를 바탕으로 닥트 내부의 분진, 유해균, 악취의 근원을 완벽하게 제거하여 깨끗하고 안전한 공기 환경을 조성해 드립니다. 특히 천장에서 분진이 떨어지거나 화재 후 냄새가 지속되는 문제도 닥트 청소를 통해 근본적으로 해결 가능합니다.
+                </p>
+
+                <h3>내일도맑음의 닥트 청소 공법</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="method-card">
+                            <img src="https://via.placeholder.com/400x200?text=Power+Brush" alt="파워 브러쉬 공법">
+                            <h4>1세대: 파워 브러쉬 공법</h4>
+                            <p>원형 닥트 내부 직경에 맞는 특수 브러쉬를 회전시켜 먼지를 효과적으로 제거하는 전통적인 방법입니다. 빠른 청소 속도와 사각/원형 닥트 모두 적용 가능하며 소독 장비와 함께 사용할 수 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="method-card">
+                            <img src="https://via.placeholder.com/400x200?text=Duct+Robot" alt="닥트 청소 로봇 공법">
+                            <h4>2세대: 닥트 청소 로봇 공법</h4>
+                            <p>브러쉬가 장착된 로봇이 닥트 내부를 이동하며 먼지를 일으키고, 강력한 집진기로 동시에 흡입하는 방식입니다. 로봇 모니터링을 통해 정밀하고 꼼꼼한 청소가 가능하며, 다양한 사이즈의 닥트에 적용됩니다.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="method-card">
+                            <img src="https://via.placeholder.com/400x200?text=Air+Whip" alt="에어 채찍 공법">
+                            <h4>3세대: 에어 채찍 공법 (최신)</h4>
+                            <p>콤프레샤에 연결된 공기 분사 노즐을 닥트 내부에 전진시키면서 고압 공기로 먼지를 털어내는 최신 공법입니다. 적은 인원과 장비로 효율적이며, 브러쉬가 닿기 어려운 사각 닥트 모서리까지 완벽하게 청소합니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>공조 덕트 청소 주기 및 비용</h3>
+                <div class="highlight-box">
+                    <p><strong>권장 청소 주기:</strong> 미국 닥트 청소 협회(NADCA)는 <strong>1~2년에 한 번</strong> 공조 덕트 청소를 권장합니다. 하지만 국내에서는 아직 인식이 낮아 장기간 청소 없이 방치되는 경우가 많습니다.</p>
+                    <p><strong>비용 산정:</strong> 닥트 청소 비용은 현장 상황에 따라 크게 달라집니다. 천장 구조, 층고 높이, 닥트 내부 오염도, 고객이 요구하는 청소 퀄리티 등에 따라 견적이 산정되므로 <strong>정확한 방문 견적이 필수</strong>입니다.</p>
+                    <p><strong>작업 시간:</strong> 일반 사무실 매장 50~100평 기준 약 1일이 소요되며, 현장 여건 및 작업 난이도에 따라 변동될 수 있습니다. 보통 3~4명의 전문 인력이 한 팀으로 투입됩니다.</p>
+                </div>
+
+                <h3>자주 묻는 질문</h3>
+                <ul>
+                    <li>**천장에서 분진이 떨어져요:** 닥트 설비(그릴, 디퓨저 포함)의 내부 청소가 제대로 이루어지지 않아서 발생하는 경우가 많습니다. 닥트 입구 부분만 청소하는 것은 임시방편일 뿐입니다.</li>
+                    <li>**화재 후 냄새가 사라지지 않아요:** 냄새의 근원인 '화재 분진'이나 '악취 물질'이 닥트 내부 또는 천장 텍스 등에 남아있기 때문입니다. 단순한 닥트 청소 외에 정밀한 진단과 제거 작업이 필요합니다.</li>
+                    <li>**공조기 필터도 청소해주나요?:** 공조기 필터는 청소가 어렵거나 불가능하며, 일반적으로 6개월~1년에 한 번씩 교체하는 것이 권장됩니다.</li>
+                </ul>
+
+                <h3>전문 업체 선정 가이드</h3>
+                <p>
+                    효과적인 닥트 청소를 위해서는 다음 사항을 확인하여 신뢰할 수 있는 전문 업체를 선택하는 것이 중요합니다:
+                </p>
+                <ul>
+                    <li>**전문성:** 관련 분야의 전문성과 경험이 충분한 업체인지 확인하세요.</li>
+                    <li>**합리적인 금액:** 너무 저렴한 비용을 제시하는 업체는 부실 시공의 우려가 있으므로 주의하세요.</li>
+                    <li>**시공 사례:** 유사한 환경에서의 시공 사례가 충분한지 확인하여 업체의 실력을 가늠할 수 있습니다.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            <p><strong><span style="font-size:20px; background-color:#3498db; padding: 5px 10px; border-radius: 5px;">직통번호 : 010 3781 7345</span></strong><br />
+            <strong>*상담시간 : 24시간 (연중무휴 )​</strong></p>
+            <p>&nbsp;</p>
+            <p>
+                상호 : 상호명 / 대표 : 부성석 / 사업자등록번호 : 000-00-00000<br />
+                주소 : 서울특별시 강남구 테헤란로 405호
+            </p>
+        </div>
+    </footer>
+
+    <div class="quick-float-banner">
+        <a href="tel:010-0000-0000" class="btn-quick btn-phone">
+            <i class="fas fa-phone-alt"></i> 전화문의
+            <span class="number">T. 1588-1111</span>
+            <span class="number">HP. 010-0000-0000</span>
+        </a>
+        <a href="https://pf.kakao.com/_YOUR_CHANNEL_ID_" target="_blank" class="btn-quick btn-kakao">
+            <i class="fas fa-comment"></i>
+            <span>카카오톡</span>
+        </a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 드롭다운 메뉴 마우스 오버 기능 활성화
+            $('.navbar .dropdown').hover(function() {
+                $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideDown(200);
+            }, function() {
+                $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideUp(200);
+            });
+
+            // 메뉴 활성화 기능
+            var path = window.location.pathname.split('/').pop(); // 'duct_cleaning.html'만 추출
+            if (path === "") path = "index.html"; // 기본 페이지 설정 (필요시 수정)
+
+            $('#gnb .nav-link, #gnb .dropdown-item').each(function() {
+                var href = $(this).attr('href');
+                if (href && href.includes(path)) {
+                    // 모든 active 클래스 제거
+                    $('#gnb .nav-item').removeClass('active');
+                    $('#gnb .dropdown-item').removeClass('active');
+
+                    // 현재 링크에 active 클래스 추가
+                    $(this).addClass('active');
+                    // 해당 링크가 드롭다운 아이템일 경우, 부모 nav-item에도 active 클래스 추가
+                    $(this).closest('.nav-item').addClass('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
