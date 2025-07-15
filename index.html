@@ -12,6 +12,7 @@
             font-family: 'Noto Sans KR', sans-serif;
             line-height: 1.6;
             color: #333;
+			padding-top: 71px;
         }
 
         .navbar-brand img {
@@ -22,6 +23,11 @@
             background-color: #fff;
             border-bottom: 1px solid #eee;
             padding: 10px 0;
+			position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030; /* 부트스트랩 navbar-fixed-top 기본 z-index와 유사하게 설정 */
+            			
         }
 
         #gnb .nav-link {
