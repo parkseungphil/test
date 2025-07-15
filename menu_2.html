@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내일도맑음 - 주방후드청소(닥트청소)</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; color: #333; padding-top: 111px;}
+        .navbar-brand img { height: 50px; }
+        #header { background-color: #fff; border-bottom: 1px solid #eee; padding: 10px 0; 			position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030; /* 부트스트랩 navbar-fixed-top 기본 z-index와 유사하게 설정 */}
+        #gnb .nav-link { color: #333; font-weight: bold; }
+        #gnb .nav-link:hover { color: #007bff; }
+        /* 활성화된 메뉴 항목 스타일 */
+        #gnb .nav-item.active > .nav-link {
+            color: #007bff; /* 파란색으로 변경 */
+            font-weight: bold;
+            border-bottom: 2px solid #007bff; /* 밑줄 추가 */
+        }
+        /* 드롭다운 메뉴 내 활성화된 항목 스타일 */
+        #gnb .dropdown-item.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Hero Section (Carousel) Styles */
+        .hero-section {
+            position: relative;
+            height: 400px; /* 캐러셀 높이 고정 */
+            overflow: hidden;
+            color: white; /* 텍스트 색상 */
+        }
+        .hero-section .carousel-item {
+            height: 400px; /* 각 슬라이드 아이템 높이 고정 */
+            background-size: cover;
+            background-position: center center;
+        }
+        .hero-section .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 이미지가 아이템을 꽉 채우도록 */
+            filter: brightness(60%); /* 이미지 어둡게 하여 텍스트 가독성 높임 */
+        }
+        .hero-section .carousel-caption {
+            position: absolute; /* 캡션 절대 위치 */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* 중앙 정렬 */
+            text-align: center;
+            width: 80%; /* 캡션 너비 조정 */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .hero-section .carousel-caption h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* 텍스트 그림자 추가 */
+        }
+        .hero-section .carousel-caption p {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* 텍스트 그림자 추가 */
+        }
+
+
+        .content-section { padding: 60px 0; }
+        .content-section h2 { font-size: 2.2em; margin-bottom: 30px; color: #007bff; text-align: center; }
+        .content-section h3 { font-size: 1.8em; margin-top: 40px; margin-bottom: 20px; color: #333; }
+        .content-section p { margin-bottom: 15px; }
+        .content-section ul { list-style: disc; margin-left: 20px; margin-bottom: 20px; }
+        .content-section ul li { margin-bottom: 8px; }
+        .method-card { border: 1px solid #eee; border-radius: 8px; padding: 25px; margin-bottom: 30px; text-align: center; transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;} /* Added flex properties */
+        .method-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: translateY(-5px); }
+        .method-card img { max-width: 100%; height: 200px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; }
+        .method-card h4 { font-size: 1.5em; color: #007bff; margin-bottom: 10px; }
+        .method-card p { font-size: 0.95em; color: #555; }
+        .highlight-box { background-color: #f8f9fa; border-left: 5px solid #007bff; padding: 20px; margin-top: 30px; margin-bottom: 30px; }
+        .highlight-box p { margin: 0; }
+
+        .image-description { text-align: center; margin-top: 20px; margin-bottom: 40px; }
+        .image-description img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .image-description p { margin-top: 10px; font-style: italic; color: #555; }
+
+        .feature-box { text-align: center; padding: 30px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 30px; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .feature-box .icon { font-size: 3em; color: #007bff; margin-bottom: 15px; }
+        .feature-box h4 { font-size: 1.6em; color: #333; margin-bottom: 10px; }
+        .feature-box p { font-size: 1em; color: #666; }
+
+        /* FAQ 아코디언 스타일 (수정됨: 항상 펼쳐지도록) */
+        .faq-item { margin-bottom: 20px; padding: 15px; border: 1px solid #eee; border-radius: 8px; background-color: #fefefe; }
+        .faq-item h5 { font-size: 1.3em; color: #007bff; display: flex; justify-content: space-between; align-items: center; margin-bottom: 0;}
+        .faq-item h5 i { display: none; /* 토글 아이콘 숨김 */ } /* Added: Hide toggle icon */
+        .faq-item .card-body { padding-top: 10px; border-top: none; display: block; /* Added: Always show content */ }
+        .faq-item .card-body p { margin-bottom: 5px; }
+
+        #footer { background-color: #343a40; color: #f8f9fa; padding: 40px 0; text-align: center; font-size: 0.9em; }
+        #footer a { color: #f8f9fa; text-decoration: none; }
+        #footer a:hover { color: #007bff; }
+
+        .aw_quickbanner {
+            padding: 5px 0; /* 상하 패딩을 5px로 줄이고 좌우는 0으로 유지 */
+            width: 100%; /* Ensure it takes full width */
+            box-sizing: border-box; /* Include padding in the element's total width and height */
+        }
+
+        /* 퀵 배너 스타일 */
+        .quick-float-banner {
+            position: fixed;
+            right: 20px; /* 오른쪽에서 20px 떨어진 위치 */
+            top: 30%; /* 화면 중앙에 위치 */
+            transform: translateY(-50%); /* 정확히 중앙 정렬 */
+            z-index: 1050; /* 다른 요소 위에 표시 */
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* 버튼 사이 간격 */
+        }
+        .quick-float-banner .btn-quick {
+            width: 120px; /* 버튼 너비 */
+            padding: 15px 10px;
+            border-radius: 10px; /* 둥근 모서리 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative; /* 아이콘 위치 조정을 위해 */
+            overflow: hidden; /* 내부 요소가 넘치지 않도록 */
+        }
+        .quick-float-banner .btn-quick:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 전화 문의 버튼 */
+        .quick-float-banner .btn-phone {
+            background-color: #28a745; /* 녹색 계열 */
+        }
+        .quick-float-banner .btn-phone i {
+            margin-right: 5px;
+            font-size: 1.2em;
+        }
+        .quick-float-banner .btn-phone .number {
+            font-size: 0.9em;
+            display: block;
+            margin-top: 3px;
+        }
+
+        /* 카카오톡 상담 버튼 */
+        .quick-float-banner .btn-kakao {
+            background-color: #ffe812; /* 카카오 노란색 */
+            color: #3c1e1e; /* 카카오 글자색 */
+            display: flex; /* Flexbox를 사용하여 내용 정렬 */
+            flex-direction: column; /* 세로 정렬 */
+            align-items: center; /* 가로 중앙 정렬 */
+            justify-content: center; /* 세로 중앙 정렬 */
+            height: 100%; /* 부모 높이에 맞춤 */
+        }
+        .quick-float-banner .btn-kakao i {
+            font-size: 1.5em; /* 아이콘 크기 조정 */
+            margin-bottom: 5px; /* 아이콘과 텍스트 사이 간격 */
+        }
+        .quick-float-banner .btn-kakao span {
+            font-size: 0.9em; /* 텍스트 크기 조정 */
+            white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+        }
+
+
+        /* 드롭다운 메뉴가 마우스 오버 시 보이도록 설정 */
+        @media (min-width: 992px) { /* 데스크탑에서만 적용 (모바일에서는 클릭 유지) */
+            .navbar-expand-lg .navbar-nav .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+            .navbar-expand-lg .navbar-nav .dropdown .dropdown-toggle::after {
+                display: none; /* 드롭다운 토글 아이콘 숨기기 (선택 사항) */
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            #gnb .navbar-nav { text-align: center; }
+            #gnb .nav-item.dropdown .dropdown-menu { width: 100%; text-align: center; }
+            .hero-section { height: 300px; } /* 모바일에서 높이 조정 */
+            .hero-section .carousel-item { height: 300px; } /* 모바일에서 높이 조정 */
+            .hero-section .carousel-caption h1 { font-size: 2em; }
+            .hero-section .carousel-caption p { font-size: 1em; }
+
+
+            .content-section { padding: 40px 0; }
+            .content-section h2 { font-size: 1.8em; }
+            .content-section h3 { font-size: 1.5em; }
+            .method-card { padding: 15px; }
+            .method-card h4 { font-size: 1.2em; }
+
+            /* 모바일에서 퀵 배너 숨기기 또는 위치 조정 (선택 사항) */
+            .quick-float-banner {
+                right: 10px;
+                bottom: 10px;
+                top: auto; /* 상단 고정 해제 */
+                transform: none; /* 중앙 정렬 해제 */
+                flex-direction: row; /* 가로로 배치 */
+                width: calc(100% - 20px); /* 너비 조정 */
+                justify-content: center;
+                gap: 10px;
+            }
+            .quick-float-banner .btn-quick {
+                width: 48%; /* 너비 조정 */
+                font-size: 0.85em;
+                padding: 12px 8px;
+            }
+            .quick-float-banner .btn-kakao i {
+                font-size: 1.2em; /* 모바일에서 아이콘 크기 조정 */
+                margin-bottom: 2px;
+            }
+        }
+
+        /* ----- 추가된 CSS 스타일 ----- */
+
+        .kitchen-hood-section h2, .price-section h3, .terminology-section h3, .cleaning-process-section h3, .faq-section h3 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2em;
+        }
+
+        .kitchen-hood-section p strong {
+            color: #007bff;
+        }
+
+        .section-image {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .section-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-info ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .price-info ul li {
+            background-color: #e9f5ff;
+            border: 1px solid #cce5ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #0056b3;
+            font-weight: bold;
+        }
+
+        .highlight-text {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            color: #6a4a00;
+        }
+
+        .terminology-list {
+            margin-top: 30px;
+        }
+
+        .terminology-list dt {
+            font-size: 1.2em;
+            color: #007bff;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .terminology-list dd {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 3px solid #eee;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .process-step .step-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #007bff;
+            margin-right: 20px;
+            flex-shrink: 0;
+            width: 50px;
+            text-align: center;
+        }
+
+        .process-step .step-content h4 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .process-step .step-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+
+        /* FAQ 섹션의 카드 헤더 및 바디 스타일 (아코디언 기능 제거에 따라 수정) */
+        .faq-accordion .card-header {
+            background-color: #f8f9fa; /* 배경색 변경 */
+            padding: 15px; /* 패딩 조정 */
+            border-bottom: 1px solid #eee; /* 하단 경계선 추가 */
+        }
+
+        .faq-accordion .card-header h5 {
+            margin: 0; /* 마진 제거 */
+            font-size: 1.2em; /* 폰트 크기 조정 */
+            color: #333; /* 폰트 색상 조정 */
+            display: flex; /* Flexbox 유지 */
+            align-items: center; /* 세로 정렬 */
+        }
+        
+        .faq-accordion .card-header h5::before { /* Q: 추가 */
+            content: "Q: ";
+            font-weight: bold;
+            color: #007bff;
+            margin-right: 8px;
+        }
+
+        .faq-accordion .card-header button {
+            display: none; /* 버튼 숨김 */
+        }
+
+        .faq-accordion .card-body {
+            border: 1px solid #eee; /* 테두리 조정 */
+            border-top: none; /* 상단 테두리 제거 */
+            padding: 20px;
+            background-color: #ffffff; /* 배경색 변경 */
+            color: #555; /* 폰트 색상 조정 */
+            display: block !important; /* 중요: 항상 보이도록 설정 */
+        }
+        
+        .faq-accordion .card-body p::before { /* A: 추가 */
+            content: "A: ";
+            font-weight: bold;
+            color: #28a745;
+            margin-right: 8px;
+        }
+
+        .faq-accordion .card {
+            margin-bottom: 15px;
+            border: 1px solid #ddd; /* 카드 테두리 조정 */
+            border-radius: 0.25rem;
+        }
+        .faq-accordion .card:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container">
+            <nav id="gnb" class="navbar navbar-expand-lg navbar-light">
+                <h1><a class="navbar-brand" href="index.html">
+                    <img src="http://www.오늘도맑음.com/img/logo.png" alt="내일도맑음 로고">
+                </a></h1>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAirDuct" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                공조덕트청소
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownAirDuct">
+                                <a class="dropdown-item" href="menu_1.html">공조덕트청소(닥트청소)</a>
+                                <a class="dropdown-item" href="menu_1.html#air-conditioner-cleaning-section">공조기청소</a>
+                                <a class="dropdown-item" href="menu_1.html#duct-coating-section">닥트코팅</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSpecial" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                특수청소(후드청소)
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownSpecial">
+                                <a class="dropdown-item active" href="menu_2.html">주방후드청소(덕트청소)</a>
+                                <a class="dropdown-item" href="menu_2.html">화재복구청소(냄새제거)</a>
+                                <a class="dropdown-item" href="menu_2.html">공장설비청소</a>
+                                <a class="dropdown-item" href="menu_2.html">팬코일, 에어컨청소</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCases" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                시공사례
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownCases">
+                                <a class="dropdown-item" href="menu_3.html">공조 닥트청소</a>
+                                <a class="dropdown-item" href="menu_3.html">주방 후드청소</a>
+                                <a class="dropdown-item" href="menu_3.html">화재 냄새제거청소</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownReviews" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                실제고객후기
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownReviews">
+                                <a class="dropdown-item" href="menu_4.html">공조 닥트청소</a>
+                                <a class="dropdown-item" href="menu_4.html">주방 후드청소</a>
+                                <a class="dropdown-item" href="menu_4.html">화재 냄새제거청소</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAbout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                회사소개
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
+                                <a class="dropdown-item" href="menu_5.html">회사소개 홈</a>
+                                <a class="dropdown-item" href="menu_5.html">인사말/조직도/연혁</a>
+                                <a class="dropdown-item" href="menu_5.html">인허가사항</a>
+                                <a class="dropdown-item" href="menu_5.html">청소장비</a>
+                                <a class="dropdown-item" href="menu_5.html">공사실적</a>
+                                <a class="dropdown-item" href="menu_5.html">공조닥트 장비문의</a>
+                                <a class="dropdown-item" href="menu_5.html">주방닥트 장비문의</a>
+                                <a class="dropdown-item" href="menu_5.html">소자본 창업 컨설팅</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCustomer" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                고객센터
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownCustomer">
+                                <a class="dropdown-item" href="menu_6.html">고객센터 홈</a>
+                                <a class="dropdown-item" href="menu_6.html">빠른 견적문의</a>
+                                <a class="dropdown-item" href="menu_6.html">전국지사 연락처</a>
+                                <a class="dropdown-item" href="menu_6.html">공지사항</a>
+                                <a class="dropdown-item" href="menu_6.html">자주묻는질문(FAQ)</a>
+                                <a class="dropdown-item" href="menu_6.html">자료실</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold text-primary" href="tel:010-8504-2784">T. 010-8504-2784</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="aw_quickbanner text-center py-1 bg-info text-white">
+        <p>24시간 연중무휴 상담 가능 <a href="tel:010-8504-2784" class="text-white font-weight-bold">010-8504-2784</a></p>
+    </div>
+
+    <main id="main-content">
+        <section class="hero-section">
+            <div id="keyVisual" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#keyVisual" data-slide-to="0" class="active"></li>
+                    <li data-target="#keyVisual" data-slide-to="1"></li>
+                    <li data-target="#keyVisual" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./img/menu1_img10.png" class="d-block w-100" alt="특수청소 이미지 1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>특수청소</h1>
+                            <p>쾌적하고 건강한 실내 공기를 위한 필수 선택!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/menu1_img11.jpg" class="d-block w-100" alt="특수청소 이미지 2">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>특수청소</h1>
+                            <p>공간을 변화시키는 전문가의 손길!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/menu1_img12.jpg" class="d-block w-100" alt="특수청소 이미지 3">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>특수청소</h1>
+                            <p>보이지 않는 곳까지 완벽하게!</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#keyVisual" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#keyVisual" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </section>
+
+		<hr>
+		
+        <section class="content-section kitchen-hood-section">
+            <div class="container">
+                <hr class="my-5">
+                <h2 class="text-center">주방후드청소(닥트청소, 덕트청소)</h2>
+                <p>
+                    눈에 보이지 않는 부분까지, <strong>내일도맑음</strong>의 주방후드청소는 특별합니다. 
+                    후드 갓에서 기름이 떨어지거나, 천장에서 누유 현상이 있거나, 모터 흡입력 저하, 모터에서 소음이 나는 문제를 전문적으로 해결합니다.
+                </p>
+                <div class="section-image">
+                    <img src="./img/menu1_img17.jpg" alt="주방 후드 청소 전후 이미지">
+                    <p>▲ 후드 갓 내부 청소 전후 비교 이미지</p>
+                </div>
+
+                <div class="price-section mt-5">
+                    <h3 class="text-center">가격 안내</h3>
+                    <div class="section-image">
+                        <img src="./img/menu1_img20.jpg" alt="가격 정보 이미지 1">
+                        <p>▲ 후드 청소 가격에 대한 설명 이미지</p>
+                    </div>
+                    <div class="price-info">
+                        <ul>
+                            <li><strong>후드 갓 1개:</strong> 30~40만 원 (1명 투입)</li>
+                            <li><strong>후드 갓 2개:</strong> 60~70만 원 (2명 투입)</li>
+                        </ul>
+                        <p class="text-center">
+                            <strong>※ 후드 갓 크기, 오염도에 따라 금액이 달라집니다.</strong><br>
+                            정확한 상담을 위해 <strong>후드 갓을 멀리서, 가까이서 사진을 찍어 문자로 보내주세요.</strong>
+                        </p>
+                    </div>
+                    <div class="section-image mt-4">
+                        <img src="./img/menu1_img20.jpg" alt="가격 정보 이미지 2">
+                        <p>▲ 닥트 청소 가격에 대한 설명 이미지</p>
+                    </div>
+                    <p>
+                        <strong>닥트는 길이, 오염도에 따라 금액이 많이 달라서 사진을 보고 금액을 말씀드리는 것이 정확합니다.</strong>
+                        일반적으로 후드 청소보다는 닥트 청소가 비쌉니다. 또한 후드 청소와 달리 닥트 청소는 전문적인 기술이 필요합니다.
+                        (실제로 청소 업체 알아보면 후드 청소 업체는 찾을 수 있지만 닥트 청소 업체는 잘 찾을 수 없습니다. 전국적으로 업체가 몇 군데 안 됩니다.
+                        저희 <strong>내일도맑음(세진)은 25년 경력 닥트 청소를 전문</strong>으로 합니다.)
+                    </p>
+                    <div class="section-image mt-4">
+                        <img src="./img/menu1_img20.jpg" alt="청소 시간 관련 이미지">
+                        <p>▲ 청소 소요 시간에 대한 설명 이미지</p>
+                    </div>
+                    <p>
+                        후드 갓 1개를 청소하는 데 1명이 5~6시간 걸립니다. 마무리 청소까지 포함한 시간입니다.
+                        청소 다음날 영업하는 데 지장 없도록 <strong>책임 시공</strong>하겠습니다.
+                        주간, 야간, 주말 작업 등 고객님이 편한 시간에 진행 가능합니다.
+                    </p>
+                </div>
+
+                <div class="terminology-section mt-5">
+                    <h3 class="text-center">주요 명칭 설명</h3>
+                    <div class="section-image">
+                        <img src="./img/menu1_img10.png" alt="후드, 닥트 명칭 설명 이미지">
+                        <p>▲ 주방 환기 시설의 주요 구성 요소 이미지</p>
+                    </div>
+                    <dl class="terminology-list">
+                        <dt>후드 갓(후황)</dt>
+                        <dd>후황 연기를 빨아들이는 틀을 말합니다.</dd>
+                        <dt>닥트(덕트)</dt>
+                        <dd>원통형 환풍구 통로입니다.</dd>
+                        <dt>자바라</dt>
+                        <dd>쭈글쭈글한 천으로 된 환풍구 통로입니다.</dd>
+                        <dt>배기팬(환풍기)</dt>
+                        <dd>후드 갓에서 바깥으로 바람을 내보내는 모터입니다.</dd>
+                        <dt>"후드 청소"</dt>
+                        <dd>후드 갓 위에 손 닿는 곳까지 청소를 합니다.</dd>
+                        <dt>"닥트 청소(덕트 청소)"</dt>
+                        <dd>수평 닥트를 청소하거나 자바라 교체를 말합니다.</dd>
+                    </dl>
+                    <div class="section-image mt-4">
+                        <img src="./img/menu1_img14.png" alt="문제점별 청소 유형 이미지">
+                        <p>▲ 주방 환기 문제점과 해결을 위한 청소 유형 이미지</p>
+                    </div>
+                    <ul>
+                        <li><strong>후드에서 기름이 떨어진다</strong> = <strong>후드 청소</strong></li>
+                        <li><strong>천장에서 기름이 떨어진다</strong> = <strong>닥트 청소(덕트 청소)</strong></li>
+                        <li><strong>모터 흡입력이 떨어진다</strong> = <strong>배기팬 분해 청소, 자바라 교체</strong></li>
+                        <li><strong>모터에서 소음이 난다</strong> = <strong>배기팬 분해 청소</strong></li>
+                    </ul>
+                    <div class="section-image mt-4">
+                        <img src="./img/menu1_img2.png" alt="배기팬 사진">
+                        <p>▲ 식당에서 주로 사용되는 "1마력 소형 시로코팬" 이미지</p>
+                    </div>
+                    <p>
+                        <strong>배기팬(모터) 사진</strong>입니다. 보통 식당에는 "1마력 소형 시로코팬"을 많이 사용합니다.
+                        팬의 흡입력이 떨어지면 교체를 하는 경우가 종종 있는데, <strong>팬 내부 날개(브로어)를 분해 청소하는 것이 훨씬 저렴합니다.</strong>
+                        (교체 비용은 약 70~80만원 / 청소 비용은 약 40만원 합니다)
+                    </p>
+                    <div class="section-image mt-4">
+                        <img src="./img/menu1_img6.png" alt="후렉시블 자바라 호수 사진">
+                        <p>▲ 후렉시블 자바라 호수 이미지</p>
+                    </div>
+                    <p>
+                        <strong>후렉시블 자바라 호수</strong>입니다. 청소는 불가능하며 <strong>교체만 가능</strong>합니다.
+                        알루미늄(은색)보다는 타포린(회색)이 훨씬 튼튼합니다. 하지만 일부 업체는 저렴한 알루미늄으로 시공하니 확인 바랍니다.
+                    </p>
+                </div>
+
+                <div class="faq-section mt-5">
+                    <h3 class="text-center">자주 묻는 질문 (FAQ)</h3>
+                    <div class="faq-accordion" id="faqAccordion">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    Q: 팬의 흡입력이 약해졌는데 어떻게 해야 될까요?
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <p>흡입력(풍속)이 약해진 것은 크게 3가지 영역에서 문제가 발생되었습니다.</p>
+
+                                <div class="section-image">
+                                    <img src="./img/menu1_img7.png" alt="팬 흡입력 저하 해결 방법">
+                                    <p>▲ 팬 흡입력 저하의 주요 원인과 해결 방안 이미지</p>
+                                </div>
+                                <p>풍속이 약해지면 팬을 교체하는 것보다 <strong>팬 분해 청소하는 것이 훨씬 저렴합니다.</strong><br>
+                                    (하지만 닥트 시공 업체에서는 영업 때문에 팬을 교체하라고 합니다.)<br>
+                                    (시로코팬 기준 배기팬 분해 청소 비용은 30~40만원, 배기팬 교체 비용은 60~70만원 합니다.)
+                                </p>
+                                
+                                <div class="highlight-box">
+                                    <h5>1. 팬의 풍속이 약해진 경우</h5>
+                                    <div class="section-image">
+                                        <img src="./img/menu1_img8.png" alt="팬 분해 청소">
+                                        <p>▲ 시로코팬에서 자바라를 분리한 후 팬 날개에 기름때가 많이 낀 모습</p>
+                                    </div>
+                                    <p><strong>팬 분해 청소</strong>를 하며, 추후 마력이 큰 팬으로 교체하기를 권장합니다.</p>
+                                    <p>일반적으로 많이 쓰는 시로코팬에서 자바라를 분리한 팬 사진입니다. 사진에서 보이듯이 <strong>팬 날개(브로어)에 기름기가 많이 끼면 팬의 흡입력이 많이 저하됩니다.</strong> 팬 날개를 일일이 약품 살포 후 수작업으로 기름때를 꼼꼼하게 제거해야 됩니다.</p>
+                                    <div class="section-image">
+                                        <img src="./img/menu1_img9.png" alt="팬 밑 기름 고임">
+                                        <p>▲ 팬 밑에 기름이 고이는 현상. 팬 내부에 기름이 많이 차있음을 유추할 수 있습니다.</p>
+                                    </div>
+                                    <p>팬 밑에 기름이 고이는 현상입니다. 고객님이 팬을 직접 분해하기 힘들더라도 이렇게 팬 밑에 기름이 고이는 현상을 보고 팬 내부에도 기름이 많이 차있다는 것을 유추할 수 있습니다.</p>
+                                </div>
+                                
+                                <div class="highlight-box">
+                                    <h5>2. 닥트 배관이 막히는 경우</h5>
+                                    <div class="section-image">
+                                        <img src="./img/menu1_img10.png" alt="막힌 닥트 배관">
+                                        <p>▲ 6년간 닥트 청소를 하지 않아 기름때로 막힌 닥트 내부</p>
+                                    </div>
+                                    <p><strong>닥트에 기름때로 막히는 경우</strong>입니다. 해당 사진은 6년간 닥트 청소를 안 한 업장입니다. 팬의 흡입력이 약해서 팬을 대형 팬으로 교체했지만 흡입력이 나아지지 않았는데 추후 당사가 닥트 청소를 해서 흡입력이 많이 나아졌습니다.</p>
+                                    <p>이처럼 팬의 흡입력이 약하다고 단순히 마력이 큰 팬을 교체하는 것이 아니라 여러 부분에서 점검해서 정확하게 문제의 원인을 찾고 해결해야 됩니다. 단순히 팬을 교체만 해도 문제가 해결 안 될 수도 있습니다. 닥트 내부의 오염도를 확인하고 싶으면 후드 갓 닥트 구멍에 스마트폰을 집어넣고 사진 찍으면 오염도를 알 수 있습니다. **"샘플링 테스트"**라고 부르는 방법이며 한 곳의 오염도를 체크해서 전체적인 닥트 내부 오염도를 확인할 수 있습니다. 쉽게 말씀드리면 자동차 외부 세차를 하고 싶은데 일부분만 비주얼 체크를 해서 전체적인 차의 오염도를 유추하는 겁니다.</p>
+                                </div>
+
+                                <div class="highlight-box">
+                                    <h5>3. 닥트, 자바라에 누수가 생긴 경우</h5>
+                                    <div class="section-image">
+                                        <img src="./img/menu1_img11.jpg" alt="메인 닥트 이음새 누유">
+                                        <p>▲ 메인 닥트 밑부분 이음새에서 기름이 새고 있는 사진</p>
+                                    </div>
+                                    <p>닥트 청소를 진행해서 누수 여부를 보수하며 자바라를 교체하기를 추천합니다. 메인 닥트 밑부분 이음새에서 기름이 새고 있는 사진입니다. 이렇게 기름이 흐르면 천장 텍스에 기름이 떨어지는데 이 정도로 기름이 떨어질 정도면 닥트 내부에도 기름이 많이 차있다는 것을 유추할 수 있습니다. 이럴 때는 닥트 내부를 청소를 진행하고 마감 처리를 진행해서 추후에 누수가 안 생기게 방지해야 됩니다.</p>
+                                    <div class="section-image">
+                                        <img src="./img/menu1_img12.jpg" alt="찢어진 자바라 호수">
+                                        <p>▲ 쥐가 찢어놓은 것으로 보이는 찢어진 자바라 호수</p>
+                                    </div>
+                                    <p>자바라가 찢어진 경우입니다. 천장 위에 배기팬이 있으면 확인이 잘 안 되고 청소를 할 경우 발견하게 됩니다. 쥐가 찢어먹은 것으로 보입니다. 현장에 자바라 여유분이 없어서 테이프로 임시 조치를 했지만 이럴 경우 자바라를 교체하시기를 추천합니다.</p>
+                                    <p>옥상에 배기팬이 설치된 경우도 많은데 누수 여부가 있는지 확인할려면, 팬을 가동하고 손가락을 펴고 맨손으로 자바라, 팬 이음새 부분을 대보시면 됩니다. 바람이 새는 게 느껴지면 보수해야 되고, 바람이 안 느껴지면 공사가 잘 된 겁니다.</p>
+                                </div>
+                                
+                                <div class="highlight-text">
+                                    <p><strong>정리하면 단순히 "팬의 풍압이 약하니 마력이 큰 팬으로 교체하면 풍압이 나아지겠네?"라고 생각하시면 안 됩니다.</strong> (강남 대형 레스토랑에서 팬의 풍압이 약해서 굉장히 큰 배기팬으로 교체했습니다. 그 후 풍압의 차이가 없어서 저희 업체에 의뢰했는데 문제는 수평 닥트가 막혀있어서 그랬습니다.)</p>
+                                    <p>전반적으로 닥트 라인을 점검해서 문제가 무엇인지 파악하고 그 부분을 해결해야 됩니다.</p>
+                                </div>
+                                <div class="section-image">
+                                    <img src="./img/menu1_img13.png" alt="닥트 라인 점검 및 해결">
+                                    <p>▲ 닥트 라인 문제 해결을 위한 전반적인 점검의 중요성</p>
+                                </div>
+                                <p>현장에서 가장 큰 원인을 차지하는 부분은 아래와 같습니다:</p>
+                                <ul>
+                                    <li><strong>1) 배기팬 내부 날개(브로어)에 기름이 차있음:</strong> 팬 분해 청소</li>
+                                    <li><strong>2) 배기팬 연결 부분 캔버스 혹은 자바라에 새는 곳이 있음:</strong> 캔버스, 자바라 교체</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    Q: 청소 주기는 어떻게 되나요?
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <p>미국 NFPA(National Fire Protection Agency) 96 표준에서는 조리된 음식의 양, 제공되는 음식의 유형 및 사용된 연료의 유형에 따라 주방 배기 시스템을 한 달에 한 번 혹은 1년에 한 번 전문적으로 청소할 것을 요구합니다.</p>
+                                <div class="section-image">
+                                    <img src="./img/menu1_img16.jpg" alt="NFPA 96 표준 청소 주기">
+                                    <p>▲ NFPA 96 표준에서 권장하는 주방 배기 시스템 청소 주기</p>
+                                </div>
+                                <p>주방 닥트 청소, 후드 청소는 화재 예방을 위해서 하는 겁니다. 국내 미군 부대 같은 경우 1달에 1회 실시하고 있습니다.</p>
+                                <p>추천드리는 청소 주기는 다음과 같습니다:</p>
+                                <ul>
+                                    <li><strong>후드 청소:</strong> 6개월~1년에 1회</li>
+                                    <li><strong>닥트 청소:</strong> 1~2년에 1회</li>
+                                </ul>
+                                <p>참고로 후드, 닥트 청소는 미국이 가장 선진국이고 국내는 영세한 수준입니다. 미국은 닥트 청소 선진국으로서 cleaning standard, license, 청소 공법, 장비 등 모든 부분에서 국내와 수준이 매우 다릅니다.</p>
+                                <p>일례로 미국식 후드는 국내와 다르게 화재 예방을 위해서 후드 갓 안에 스프링클러가 내장되어 있습니다. 또한 자동적으로 후드 세척 기능이 되는 후드 갓도 있습니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    Q: 닥트 청소를 알아보니 생각보다 비싸네요. 저렴하게 할 수 없나요?
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <p>간혹 닥트 청소 전문이 아닌 일반 청소 업체가 터무니없이 저렴하게 한다는 경우가 있습니다. 이 경우는 업체 입장에서는 이익을 남겨야 되기 때문에 <strong>"빨리빨리 대충대충"</strong> 청소할 수밖에 없고 하루에 여러 업장을 청소 진행합니다.</p>
+                                <div class="section-image">
+                                    <img src="./img/menu1_img17.jpg" alt="저렴한 청소 업체의 문제점">
+                                    <p>▲ 저렴한 청소는 결국 재청소로 이어질 수 있습니다.</p>
+                                </div>
+                                <p>그렇게 할 시 처음에는 깨끗해 보이지만 1~2달 뒤에는 기름이 다시 흘러서 재청소를 진행해야 됩니다.</p>
+                                <div class="section-image">
+                                    <img src="./img/menu1_img18.jpg" alt="청소는 한 번에 제대로">
+                                    <p>▲ 내일도맑음은 "한 번 할 때 제대로 꼼꼼히"를 강조합니다.</p>
+                                </div>
+                                <p>저는 10년 차 현장 소장입니다. 고객님께 항상 드리는 말씀이 <strong>"어차피 큰맘 먹고 한 번 하는 청소하는 건데 한 번 할 때 제대로 꼼꼼히 해서 당분간 기름이 안 떨어지게 하는 게 가장 싸게 하는 방법"</strong>입니다. 솔직히 말하면 일부 비양심 업체는 눈에 안 보이는 곳 청소 안 하고 다 했다고 거짓말하는 곳도 있습니다. 그래서 닥트 청소는 <strong>"고객님과 신뢰, 책임 시공"</strong>이 가장 중요합니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    Q: 후드 청소는 1회성인가요?
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <p>아닙니다. <strong>주기적으로 하셔야 되고 더 중요한 것은 "정확하게 진단"을 받으셔야 됩니다.</strong></p>
+                                <p>우리가 자동차에 기스가 난 곳을 찾으려면 먼저 cleaning(청소)을 진행하고 그다음에 inspection(점검)을 해야 됩니다.</p>
+                                <p>마찬가지로 비용이 부담되면 일단 후드 청소를 진행하시고 진단을 받으셔야 됩니다. 단순히 1회성 청소하는 것이 아니라 문제 있는 부분을 파악하고 고객님께 솔루션을 제공해야 됩니다.</p>
+                                <div class="section-image">
+                                    <img src="./img/menu1_img19.jpg" alt="정확한 진단의 중요성">
+                                    <p>▲ 청소와 점검을 통한 정확한 문제 진단의 중요성</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    Q: 스팀 혹은 고압으로 닥트 청소 가능한가요?
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <p>아니요. <strong>"마케팅적 용어"</strong>입니다.</p>
+                                <p>닥트 청소는 기본적으로 분해 및 절단을 해서 약품을 뿌리고 일일이 수작업으로 기름을 제거해야 됩니다.</p>
+                                <p>학교 급식실처럼 깨끗한 후드면 모를까, 스팀으로만 기름이 절대로 나가지 않습니다.</p>
+                                <div class="section-image">
+                                    <img src="./img/menu2_img1.jpg" alt="스팀 청소의 한계">
+                                    <p>▲ 스팀 청소만으로는 닥트 내부의 굳은 기름때 제거가 어렵습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    Q: 배기팬이 잘 안 빨리면 교체해야 되나요?
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <p>아니요. 팬의 흡입력이 떨어지면 교체를 하는 경우가 종종 있는데, <strong>팬 내부 날개(브로어)를 분해 청소하는 것이 훨씬 저렴합니다.</strong></p>
+                                <p>(교체 비용은 약 70~80만원 / 청소 비용은 약 40만원 합니다.)</p>
+                                <div class="section-image">
+                                    <img src="./img/menu2_img2.jpg" alt="배기팬 분해 청소">
+                                    <p>▲ 배기팬을 분해하여 날개(브로어)를 청소하는 모습</p>
+                                </div>
+                                <p>배기팬을 분해해서 날개(브로어)를 청소하면 됩니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    Q: 배기팬 모터에서 소음 나는데 어떻게 해결 가능할까요?
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="section-image">
+                                    <img src="./img/menu2_img3.jpg" alt="소음 원인">
+                                    <p>▲ 배기팬 내부 이물질로 인한 소음 발생</p>
+                                </div>
+                                <p>배기팬에서 소음 나는 것은 팬 내부 날개(브로어)에 이물질이 들어가는 경우입니다. 이럴 경우 팬을 분해해서 이물질을 제거해야 소음을 해결할 수 있습니다.</p>
+                                <div class="section-image">
+                                    <img src="./img/menu2_img4.jpg" alt="청소 전후 소음 해결">
+                                    <p>▲ 배기팬 내부 날개(브로어) 청소 전후 비교. 기름때 제거로 소음 문제 해결</p>
+                                </div>
+                                <p>배기팬 내부 날개(브로어) 청소 전후 사진입니다. 한눈에 보기에도 청소 전에 비해서 기름때가 많이 제거되었습니다. 팬 내부에 이물질을 완전히 제거하였기에 소음 문제는 사라졌습니다.</p>
+                                <div class="section-image">
+                                    <img src="./img/menu2_img1.jpg" alt="정기적인 유지보수의 중요성">
+                                    <p>▲ 눈에 보이지 않는 닥트, 자바라, 배기팬 청소 및 점검의 중요성</p>
+                                </div>
+                                <p>이처럼 식당 업장에는 후드 청소는 눈에 보이기 때문에 주기적으로 청소를 진행하지만, 눈에 안 보이는 닥트, 자바라 호수, 배기팬은 청소를 못 하는 경향이 있습니다. 그래서 후드 청소를 자체적으로 하더라도 종종 전체적인 청소 및 라인 점검을 해서 유지 보수를 해야 됩니다. 그래야 결과적으로 닥트 설비를 오래 사용할 수 있습니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    Q: 청소 업체 맡기는 것 말고 직접 청소하는 게 더 싸지 않나요?
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="section-image">
+                                    <img src="./img/menu2_img2.jpg" alt="직접 청소 시 주의사항">
+                                    <p>▲ 자체 청소 중 보루가 팬에 빨려 들어가 고장난 사례</p>
+                                </div>
+                                <p>맞습니다. 단, 주의를 하셔야 됩니다. 자체 청소를 하다가 보루가 팬 내부에 빨려 들어가서 팬에서 큰 소음이 나서 청소 업체를 부른 사례입니다. <strong>청소할 때는 팬을 꼭 끄시고 작업 하시기 바랍니다.</strong></p>
+                                <p>후드는 자체 청소는 가능하지만, <strong>닥트, 팬 청소는 전문가 영역입니다.</strong> 정기적으로 전체적인 점검을 받기를 추천드립니다.</p>
+                                <p>예를 들면, 자동차 엔진오일 정도는 자체적으로 갈 수 있지만, 자동차가 고장 나면 카센터에 맡기지 않나요? 마찬가지로 후드는 자체적으로 청소하시더라도 종종 청소 업체를 불러서 청소 및 전체적으로 점검하는 것도 중요합니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    Q: 청소 업체 선정 시 중요한 것은 무엇일까요?
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="section-image">
+                                    <img src="./img/menu2_img3.jpg" alt="전문 업체 선정의 중요성">
+                                    <p>▲ 닥트 청소는 전문적인 기술이 필요합니다.</p>
+                                </div>
+                                <p><strong>1. 전문 업체를 선정하는 것이 중요합니다.</strong></p>
+                                <p>후드 청소는 영세한 업체가 청소는 가능하지만 닥트 청소는 전문적인 기술이 필요합니다.</p>
+                                <div class="section-image">
+                                    <img src="./img/menu2_img4.jpg" alt="너무 싼 가격의 위험성">
+                                    <p>▲ 터무니없이 저렴한 가격은 품질 저하로 이어집니다.</p>
+                                </div>
+                                <p><strong>2. 청소 금액이 타 업체에 비해서 너무 싸면 문제가 있습니다.</strong></p>
+                                <p>제대로 된 청소 업체라면 가격이 다들 비슷합니다. 만약 저렴하면 그만큼 적은 인원으로 눈에 안 보이는 곳은 빼고 대충 청소한다는 의미입니다. <strong>항상 가격과 퀄리티는 반비례합니다.</strong></p>
+                                <div class="section-image">
+                                    <img src="./img/menu2_img1.jpg" alt="유사 시공사례 확인">
+                                    <p>▲ 업체의 시공사례를 통해 전문성과 신뢰성을 확인하세요.</p>
+                                </div>
+                                <p><strong>3. 유사 시공사례가 있는지 봐야 됩니다.</strong></p>
+                                <p>해당 업체에 고객님이 겪는 문제를 해결한 포트폴리오가 있는지 확인해 보세요. (당사는 "시공사례" 게시판에서 확인 가능합니다.)</p>
+                                <div class="section-image">
+                                    <img src="./img/menu2_img2.jpg" alt="신뢰할 수 있는 업체 선정">
+                                    <p>▲ 닥트 청소는 신뢰와 책임 시공이 가장 중요합니다.</p>
+                                </div>
+                                <p>정말 솔직히 말하면 인터넷에는 제대로 된 닥트 청소 정보가 별로 없습니다. 업체를 꼼꼼히 확인하시고 선정하시길 바랍니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cleaning-process-section mt-5">
+                    <hr class="my-5">
+                    <h3 class="text-center">청소 과정</h3>
+                    <div class="container">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>작업 현장 비닐 보양</h4>
+                                <img src="./img/menu2_img3.jpg" alt="작업 현장 비닐 보양">
+                                <p>주변 오염 방지를 위해 작업 현장을 꼼꼼하게 비닐로 보양합니다.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>후드 고압 세척</h4>
+                                <img src="./img/menu2_img4.jpg" alt="후드 고압 세척">
+                                <p>고압 세척기를 사용하여 후드 갓 내부의 찌든 기름때를 제거합니다.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>후드 청소</h4>
+                                <img src="./img/menu2_img5.jpg" alt="후드 청소">
+                                <p>전문 약품과 수작업으로 후드 전체를 깨끗하게 청소합니다.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>그릴 고압 세척</h4>
+                                <img src="./img/menu2_img6.jpg" alt="그릴 고압 세척">
+                                <p>분리된 그릴 및 필터도 고압으로 세척하여 오염물을 제거합니다.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>닥트 분해 청소 (1)</h4>
+                                <img src="./img/menu2_img7.jpg" alt="닥트 분해 청소 1">
+                                <p>닥트의 접근 가능한 부분을 분해하고 내부를 청소합니다.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">6</div>
+                            <div class="step-content">
+                                <h4>닥트 분해 청소 (2)</h4>
+                                <img src="./img/menu2_img8.jpg" alt="닥트 분해 청소 2">
+                                <p>필요에 따라 닥트를 추가 분해하여 깊숙한 곳의 오염까지 제거합니다.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">7</div>
+                            <div class="step-content">
+                                <h4>배기팬 분해 청소</h4>
+                                <img src="./img/menu2_img4.jpg" alt="배기팬 분해 청소">
+                                <p>배기팬을 분해하여 날개(브로어)에 낀 기름때와 이물질을 깨끗하게 청소합니다.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">8</div>
+                            <div class="step-content">
+                                <h4>작업 후 마무리 청소</h4>
+                                <img src="./img/menu2_img1.jpg" alt="작업 후 마무리 청소">
+                                <p>청소 작업 후 주변을 깔끔하게 정리하고 고객 확인을 받습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            <p><strong><span style="font-size:20px; background-color:#3498db; padding: 5px 10px; border-radius: 5px;">직통번호 : 010-8504-2784</span></strong><br />
+            <strong>*상담시간 : 24시간 (연중무휴 )​</strong></p>
+            <p>&nbsp;</p>
+            <p>
+                상호 : 내일도맑음 / 대표 : 부성석 / 사업자등록번호 : 000-00-00000<br />
+                주소 : 서울특별시 강남구 테헤란로 405호
+            </p>
+        </div>
+    </footer>
+
+    <div class="quick-float-banner">
+        <a href="tel:010-8504-2784" class="btn-quick btn-phone">
+            <i class="fas fa-phone-alt"></i> 전화문의
+            <span class="number">010-8504-2784</span>
+        </a>
+        <a href="https://pf.kakao.com/_YOUR_CHANNEL_ID_" target="_blank" class="btn-quick btn-kakao">
+            <i class="fas fa-comment"></i>
+            <span>카카오톡 문의</span>
+        </a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Carousel auto-slide interval
+            $('#keyVisual').carousel({
+                interval: 5000 // Change slide every 5 seconds
+            });
+
+            // Inquiry submission button action
+            $('#estimateModal .btn-primary').on('click', function() {
+                alert('문의가 제출되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+                $('#estimateModal').modal('hide'); // Close modal
+            });
+
+            // Dropdown menu hover effect activation
+            $('.navbar .dropdown').hover(function() {
+                $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideDown(200);
+            }, function() {
+                $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideUp(200);
+            });
+
+            // Menu activation feature
+            $('#gnb .nav-link, #gnb .dropdown-item').on('click', function(e) {
+                // Remove 'active' class from all nav items and dropdown items
+                $('#gnb .nav-item').removeClass('active');
+                $('#gnb .dropdown-item').removeClass('active');
+
+                // Add 'active' class to the clicked item and its parent nav-item
+                if ($(this).hasClass('dropdown-item')) {
+                    $(this).addClass('active');
+                    $(this).closest('.nav-item').addClass('active');
+                } else {
+                    $(this).closest('.nav-item').addClass('active');
+                }
+            });
+
+            // Activate menu item based on current URL (optional)
+            // This can maintain active state after page refresh if actual page paths are used.
+            var currentPath = window.location.pathname;
+            $('#gnb a').each(function() {
+                if ($(this).attr('href') === currentPath) {
+                    $(this).addClass('active');
+                    $(this).closest('.nav-item').addClass('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
