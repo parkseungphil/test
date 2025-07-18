@@ -7,339 +7,19 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            line-height: 1.6;
-            color: #333;
-			padding-top: 111px;
-        }
-
-        .navbar-brand img {
-            height: 50px;
-        }
-
-        #header {
-            background-color: #fff;
-            border-bottom: 1px solid #eee;
-            padding: 10px 0;
-			position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1030; /* 부트스트랩 navbar-fixed-top 기본 z-index와 유사하게 설정 */
-            			
-        }
-
-        #gnb .nav-link {
-            color: #333;
-            font-weight: bold;
-        }
-
-        #gnb .nav-link:hover {
-            color: #007bff;
-        }
-
-        /* 활성화된 메뉴 항목 스타일 */
-        #gnb .nav-item.active > .nav-link {
-            color: #007bff; /* 파란색으로 변경 */
-            font-weight: bold;
-            border-bottom: 2px solid #007bff; /* 밑줄 추가 */
-        }
-
-        /* 드롭다운 메뉴 내 활성화된 항목 스타일 */
-        #gnb .dropdown-item.active {
-            background-color: #007bff;
-            color: white;
-        }
-
-        /* Quick Banner Styles */
-        .aw_quickbanner {
-            padding: 5px 0; /* Reduced vertical padding */
-            width: 100%;
-            box-sizing: border-box;
-            /* No need for position: fixed here unless you want it always visible */
-            /* It's currently placed between the header and the main content,
-               so it will flow naturally with the page. */
-        }
-
-        #keyVisual {
-            background-color: #f8f9fa;
-            text-align: center;
-            padding: 0;
-            position: relative;
-        }
-
-        #keyVisual .carousel-item img {
-            max-height: 400px;
-            object-fit: cover;
-            width: 100%;
-        }
-
-        #keyVisual .carousel-caption {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.5); /* Overlay for text readability */
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-
-        #keyVisual h3 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-
-        #keyVisual h4 {
-            font-size: 1.2em;
-            color: #eee;
-        }
-
-        .shortcutWrap {
-            padding: 50px 0;
-            background-color: #f2f2f2;
-        }
-
-        .shortcutWrap .card {
-            border: none;
-            text-align: center;
-            transition: transform 0.3s ease;
-            margin-bottom: 20px;
-        }
-
-        .shortcutWrap .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .shortcutWrap .card-body {
-            padding: 20px;
-        }
-
-        .shortcutWrap .card-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-top: 15px;
-        }
-
-        .shortcutWrap .card-img-top {
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .mainVideoWrap {
-            padding: 50px 0;
-            background-color: #fff;
-        }
-
-        .mainVideoWrap .videoTxt {
-            padding: 20px;
-        }
-
-        .newsWrap {
-            padding: 50px 0;
-            background-color: #f8f9fa;
-        }
-
-        .newsWrap .card {
-            border: none;
-            margin-bottom: 30px;
-        }
-
-        .newsWrap .card-img-top {
-            height: 200px;
-            object-fit: cover;
-        }
-
-        #footer {
-            background-color: #343a40;
-            color: #f8f9fa;
-            padding: 40px 0;
-            text-align: center;
-            font-size: 0.9em;
-        }
-
-        #footer a {
-            color: #f8f9fa;
-            text-decoration: none;
-        }
-
-        #footer a:hover {
-            color: #007bff;
-        }
-
-        .quickBox {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            z-index: 1000;
-        }
-
-        .quickBox .btn {
-            background-color: #28a745;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .quickBox .btn:hover {
-            background-color: #218838;
-        }
-
-.aw_quickbanner {
-			padding: 5px 0; /* 상하 패딩을 5px로 줄이고 좌우는 0으로 유지 */
-		}	
-
-        /* 퀵 배너 스타일 */
-        .quick-float-banner {
-            position: fixed;
-            right: 20px; /* 오른쪽에서 20px 떨어진 위치 */
-            top: 30%; /* 화면 중앙에 위치 */
-            transform: translateY(-50%); /* 정확히 중앙 정렬 */
-            z-index: 1050; /* 다른 요소 위에 표시 */
-            display: flex;
-            flex-direction: column;
-            gap: 15px; /* 버튼 사이 간격 */
-        }
-        .quick-float-banner .btn-quick {
-            width: 120px; /* 버튼 너비 */
-            padding: 15px 10px;
-            border-radius: 10px; /* 둥근 모서리 */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            font-size: 0.9em;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative; /* 아이콘 위치 조정을 위해 */
-            overflow: hidden; /* 내부 요소가 넘치지 않도록 */
-        }
-        .quick-float-banner .btn-quick:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        /* 전화 문의 버튼 */
-        .quick-float-banner .btn-phone {
-            background-color: #28a745; /* 녹색 계열 */
-        }
-        .quick-float-banner .btn-phone i {
-            margin-right: 5px;
-            font-size: 1.2em;
-        }
-        .quick-float-banner .btn-phone .number {
-            font-size: 0.9em;
-            display: block;
-            margin-top: 3px;
-        }
-
-        /* 카카오톡 상담 버튼 */
-        .quick-float-banner .btn-kakao {
-            background-color: #ffe812; /* 카카오 노란색 */
-            color: #3c1e1e; /* 카카오 글자색 */
-            display: flex; /* Flexbox를 사용하여 내용 정렬 */
-            flex-direction: column; /* 세로 정렬 */
-            align-items: center; /* 가로 중앙 정렬 */
-            justify-content: center; /* 세로 중앙 정렬 */
-            height: 100%; /* 부모 높이에 맞춤 */
-        }
-        .quick-float-banner .btn-kakao i {
-            font-size: 1.5em; /* 아이콘 크기 조정 */
-            margin-bottom: 5px; /* 아이콘과 텍스트 사이 간격 */
-        }
-        .quick-float-banner .btn-kakao span {
-            font-size: 0.9em; /* 텍스트 크기 조정 */
-            white-space: nowrap; /* 텍스트 줄바꿈 방지 */
-        }
-		
-        /* Dropdown menu hover effect for desktop */
-        @media (min-width: 992px) {
-            .navbar-expand-lg .navbar-nav .dropdown:hover .dropdown-menu {
-                display: block;
-            }
-
-            .navbar-expand-lg .navbar-nav .dropdown .dropdown-toggle::after {
-                display: none; /* Hide dropdown toggle icon (optional) */
-            }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 991.98px) {
-            #gnb .navbar-nav {
-                text-align: center;
-            }
-
-            #gnb .nav-item.dropdown .dropdown-menu {
-                width: 100%;
-                text-align: center;
-            }
-
-            #keyVisual {
-                padding: 0;
-            }
-
-            #keyVisual h3 {
-                font-size: 2em;
-            }
-
-            #keyVisual h4 {
-                font-size: 1em;
-            }
-
-            .mainVideoWrap .row {
-                flex-direction: column;
-            }
-
-            .mainVideoWrap .videoTxt {
-                text-align: center;
-                margin-top: 20px;
-            }
-            /* 모바일에서 퀵 배너 숨기기 또는 위치 조정 (선택 사항) */
-            .quick-float-banner {
-                right: 10px;
-                bottom: 10px;
-                top: auto; /* 상단 고정 해제 */
-                transform: none; /* 중앙 정렬 해제 */
-                flex-direction: row; /* 가로로 배치 */
-                width: calc(100% - 20px); /* 너비 조정 */
-                justify-content: center;
-                gap: 10px;
-            }
-            .quick-float-banner .btn-quick {
-                width: 48%; /* 너비 조정 */
-                font-size: 0.85em;
-                padding: 12px 8px;
-            }
-            .quick-float-banner .btn-kakao i {
-                font-size: 1.2em; /* 모바일에서 아이콘 크기 조정 */
-                margin-bottom: 2px;
-            }			
-        }
-
-        @media (max-width: 767.98px) {
-            .shortcutWrap .card,
-            .newsWrap .card {
-                margin-bottom: 15px;
-            }
-
-            #keyVisual .carousel-item img {
-                max-height: 250px;
-            }
-        }
-    </style>
+	<link href="./css/styles.css" rel="stylesheet"  />
+	
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./js/script.js"></script>	
 </head>
 <body>
 
     <header id="header">
         <div class="container">
             <nav id="gnb" class="navbar navbar-expand-lg navbar-light">
-                <h1><a class="navbar-brand" href="#">
+                <h1><a class="navbar-brand" href="index.html">
                     <img src="http://www.오늘도맑음.com/img/logo.png" alt="내일도맑음 로고">
                 </a></h1>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -362,10 +42,10 @@
                                 특수청소(후드청소)
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownSpecial">
-                                <a class="dropdown-item" href="menu_2.html">주방후드청소(덕트청소)</a>
-                                <a class="dropdown-item" href="menu_2.html">화재복구청소(냄새제거)</a>
-                                <a class="dropdown-item" href="menu_2.html">공장설비청소</a>
-                                <a class="dropdown-item" href="menu_2.html">팬코일, 에어컨청소</a>
+                                <a class="dropdown-item" href="menu_2_1.html">주방후드청소(덕트청소)</a>
+                                <a class="dropdown-item" href="menu_2_2.html">화재복구청소(냄새제거)</a>
+                                <a class="dropdown-item" href="menu_2_3.html">공장설비청소</a>
+                                <a class="dropdown-item" href="menu_2_4.html">팬코일, 에어컨청소</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -374,8 +54,8 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownCases">
                                 <a class="dropdown-item" href="menu_3.html">공조 닥트청소</a>
-                                <a class="dropdown-item" href="menu_3.html">주방 후드청소</a>
-                                <a class="dropdown-item" href="menu_3.html">화재 냄새제거청소</a>
+                                <a class="dropdown-item" href="menu_3.html#section2">주방 후드청소</a>
+                                <a class="dropdown-item" href="menu_3.html#section3">화재 냄새제거청소</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -383,24 +63,24 @@
                                 실제고객후기
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownReviews">
-                                <a class="dropdown-item" href="menu_4.html">공조 닥트청소</a>
-                                <a class="dropdown-item" href="menu_4.html">주방 후드청소</a>
-                                <a class="dropdown-item" href="menu_4.html">화재 냄새제거청소</a>
+                                <a class="dropdown-item" href="menu_4.html#">공조 닥트청소</a>
+                                <a class="dropdown-item" href="menu_4.html#section2">주방 후드청소</a>
+                                <a class="dropdown-item" href="menu_4.html#section3">화재 냄새제거청소</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
+                        <!--li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAbout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 회사소개
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
-                                <a class="dropdown-item" href="menu_5.html">회사소개 홈</a>
-                                <a class="dropdown-item" href="menu_5.html">인사말/조직도/연혁</a>
-                                <a class="dropdown-item" href="menu_5.html">인허가사항</a>
-                                <a class="dropdown-item" href="menu_5.html">청소장비</a>
-                                <a class="dropdown-item" href="menu_5.html">공사실적</a>
-                                <a class="dropdown-item" href="menu_5.html">공조닥트 장비문의</a>
-                                <a class="dropdown-item" href="menu_5.html">주방닥트 장비문의</a>
-                                <a class="dropdown-item" href="menu_5.html">소자본 창업 컨설팅</a>
+                                <a class="dropdown-item" href="menu_5.html#">회사소개 홈</a>
+                                <a class="dropdown-item" href="menu_5.html#">인사말/조직도/연혁</a>
+                                <a class="dropdown-item" href="menu_5.html#">인허가사항</a>
+                                <a class="dropdown-item" href="menu_5.html#">청소장비</a>
+                                <a class="dropdown-item" href="menu_5.html#">공사실적</a>
+                                <a class="dropdown-item" href="menu_5.html#">공조닥트 장비문의</a>
+                                <a class="dropdown-item" href="menu_5.html#">주방닥트 장비문의</a>
+                                <a class="dropdown-item" href="menu_5.html#">소자본 창업 컨설팅</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -408,14 +88,12 @@
                                 고객센터
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownCustomer">
-                                <a class="dropdown-item" href="menu_6.html">고객센터 홈</a>
-                                <a class="dropdown-item" href="menu_6.html">빠른 견적문의</a>
-                                <a class="dropdown-item" href="menu_6.html">전국지사 연락처</a>
-                                <a class="dropdown-item" href="menu_6.html">공지사항</a>
-                                <a class="dropdown-item" href="menu_6.html">자주묻는질문(FAQ)</a>
-                                <a class="dropdown-item" href="menu_6.html">자료실</a>
+                                <a class="dropdown-item" href="menu_6.html#">고객센터 홈</a>
+                                <a class="dropdown-item" href="menu_6.html#">빠른 견적문의</a>
+                                <a class="dropdown-item" href="menu_6.html#">공지사항</a>
+                                <a class="dropdown-item" href="menu_6.html#">자주묻는질문(FAQ)</a>
                             </div>
-                        </li>
+                        </li-->
                         <li class="nav-item">
                             <a class="nav-link font-weight-bold text-primary" href="tel:010-8504-2784">T. 010-8504-2784</a>
                         </li>
@@ -681,54 +359,6 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            // Carousel auto-slide interval
-            $('#keyVisual').carousel({
-                interval: 5000 // Change slide every 5 seconds
-            });
 
-            // Inquiry submission button action
-            $('#estimateModal .btn-primary').on('click', function() {
-                alert('문의가 제출되었습니다. 빠른 시일 내에 연락드리겠습니다.');
-                $('#estimateModal').modal('hide'); // Close modal
-            });
-
-            // Dropdown menu hover effect activation
-            $('.navbar .dropdown').hover(function() {
-                $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideDown(200);
-            }, function() {
-                $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideUp(200);
-            });
-
-            // Menu activation feature
-            $('#gnb .nav-link, #gnb .dropdown-item').on('click', function(e) {
-                // Remove 'active' class from all nav items and dropdown items
-                $('#gnb .nav-item').removeClass('active');
-                $('#gnb .dropdown-item').removeClass('active');
-
-                // Add 'active' class to the clicked item and its parent nav-item
-                if ($(this).hasClass('dropdown-item')) {
-                    $(this).addClass('active');
-                    $(this).closest('.nav-item').addClass('active');
-                } else {
-                    $(this).closest('.nav-item').addClass('active');
-                }
-            });
-
-            // Activate menu item based on current URL (optional)
-            // This can maintain active state after page refresh if actual page paths are used.
-            var currentPath = window.location.pathname;
-            $('#gnb a').each(function() {
-                if ($(this).attr('href') === currentPath) {
-                    $(this).addClass('active');
-                    $(this).closest('.nav-item').addClass('active');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
