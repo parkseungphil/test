@@ -3,7 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>내일도맑음 - 청소 전문가</title>
+    <title>에이비씨클린 - 청소 전문가 | [에이비씨클린]</title>
+    <meta name="description" content="에이비씨클린! 청소 전문가 [에이비씨클린]에서 매일 새로운 영감을 얻으세요!">
+    <meta name="keywords" content="에이비씨클린 ,후드 ,덕트 ,화재청소 ,에어컨 [에이비씨클린]">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="에이비씨클린 - [에이비씨클린]">
+    <meta property="og:description" content="에이비씨클린! 청소 전문가 [에이비씨클린]에서 매일 새로운 영감을 얻으세요! [에이비씨클린]에서 새로운 하루를 시작하세요!">
+    <meta property="og:image" content="https://example.com/images/sunny.jpg">
+    <meta property="og:url" content="https://example.com">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "에이비씨클린",
+      "url": "https://example.com"
+      }
+    </script>	
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
@@ -12,7 +28,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="./js/script.js"></script>	
+    <script src="./js/scripts.js"></script>	
 </head>
 <body>
 
@@ -20,7 +36,7 @@
         <div class="container">
             <nav id="gnb" class="navbar navbar-expand-lg navbar-light">
                 <h1><a class="navbar-brand" href="index.html">
-                    <img src="http://www.오늘도맑음.com/img/logo.png" alt="내일도맑음 로고">
+                    <img src="./img/logo/logo1.png" alt="에이비씨클린 로고">
                 </a></h1>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -245,7 +261,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="videoTxt">
-                                    <h3 class="main"><span>내일도맑음, 20년이상의 노하우</span></h3>
+                                    <h3 class="main"><span>에이비씨클린, 20년이상의 노하우</span></h3>
                                     <p class="sub">최고의 기술력과 장비로 고객 만족을 실현합니다.</p>
                                     <a href="menu_3.html" class="readmore btn btn-outline-primary">자세히 알기</a>
                                 </div>
@@ -304,10 +320,22 @@
             <p><strong><span style="font-size:20px; background-color:#3498db; padding: 5px 10px; border-radius: 5px;">직통번호 : 010 3781 7345</span></strong><br />
             <strong>*상담시간 : 24시간 (연중무휴 )​</strong></p>
             <p>&nbsp;</p>
+			<p style="font-size : 20px ;">서울 본점 </p>
             <p>
-                상호 : 상호명 / 대표 : 부성석 / 사업자등록번호 : 000-00-00000<br />
-                주소 : 서울특별시 강남구 테헤란로 405호
+                상호 : (주)에이비씨클린 / 대표 : 부성석 <br />
+                주소 : 서울시 금천구 가산디지털1로 119, SK트윈테크타워 B1, 134-1<br />
+				E-mail : clean24@naver.com<br />
+				Fax : 02-6008-2638
             </p>
+            <p>&nbsp;</p>
+			<p style="font-size : 20px ;">제주 지사 </p>
+            <p>
+				상호 : (주)에이비씨클린 / 대표 : 최진호 <br />
+				주소 : 서귀포시 천제연로 103-23 102동 103호(색달동)<br />
+				전화번호 : 010-4955-4456<br />
+				E-mail : clean24@naver.com<br />
+				Fax : 02-6008-2638				
+            </p>			
         </div>
     </footer>
 
@@ -316,7 +344,7 @@
             <i class="fas fa-phone-alt"></i> 전화문의
             <span class="number">010-8504-2784</span>
         </a>
-        <a href="https://pf.kakao.com/_YOUR_CHANNEL_ID_" target="_blank" class="btn-quick btn-kakao">
+        <a href="https://pf.kakao.com/_MmAWn/chat" target="_blank" class="btn-quick btn-kakao">
             <i class="fas fa-comment"></i>
             <span>카카오톡 문의</span>
         </a>
@@ -332,7 +360,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="quoteForm">
                         <div class="form-group">
                             <label for="userName">이름</label>
                             <input type="text" class="form-control" id="userName" placeholder="이름을 입력해주세요">
@@ -353,7 +381,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-                    <button type="button" class="btn btn-primary">문의 제출</button>
+                    <button type="button" class="btn btn-primary" id="btnEmail">문의 제출</button>
                 </div>
             </div>
         </div>
