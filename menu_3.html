@@ -3,613 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>내일도맑음 - 주방후드청소(닥트청소)</title>
+    <title>내일도맑음 - 시공사례</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; color: #333; padding-top: 111px;}
-        .navbar-brand img { height: 50px; }
-        #header { background-color: #fff; border-bottom: 1px solid #eee; padding: 10px 0; 			position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1030; /* 부트스트랩 navbar-fixed-top 기본 z-index와 유사하게 설정 */}
-        #gnb .nav-link { color: #333; font-weight: bold; }
-        #gnb .nav-link:hover { color: #007bff; }
-        /* 활성화된 메뉴 항목 스타일 */
-        #gnb .nav-item.active > .nav-link {
-            color: #007bff; /* 파란색으로 변경 */
-            font-weight: bold;
-            border-bottom: 2px solid #007bff; /* 밑줄 추가 */
-        }
-        /* 드롭다운 메뉴 내 활성화된 항목 스타일 */
-        #gnb .dropdown-item.active {
-            background-color: #007bff;
-            color: white;
-        }
-
-        /* Hero Section (Carousel) Styles */
-        .hero-section {
-            position: relative;
-            height: 400px; /* 캐러셀 높이 고정 */
-            overflow: hidden;
-            color: white; /* 텍스트 색상 */
-        }
-        .hero-section .carousel-item {
-            height: 400px; /* 각 슬라이드 아이템 높이 고정 */
-            background-size: cover;
-            background-position: center center;
-        }
-        .hero-section .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* 이미지가 아이템을 꽉 채우도록 */
-            filter: brightness(60%); /* 이미지 어둡게 하여 텍스트 가독성 높임 */
-        }
-        .hero-section .carousel-caption {
-            position: absolute; /* 캡션 절대 위치 */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%); /* 중앙 정렬 */
-            text-align: center;
-            width: 80%; /* 캡션 너비 조정 */
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .hero-section .carousel-caption h1 {
-            font-size: 3em;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* 텍스트 그림자 추가 */
-        }
-        .hero-section .carousel-caption p {
-            font-size: 1.2em;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* 텍스트 그림자 추가 */
-        }
-
-
-        .content-section { padding: 60px 0; }
-        .content-section h2 { font-size: 2.2em; margin-bottom: 30px; color: #007bff; text-align: center; }
-        .content-section h3 { font-size: 1.8em; margin-top: 40px; margin-bottom: 20px; color: #333; }
-        .content-section p { margin-bottom: 15px; }
-        .content-section ul { list-style: disc; margin-left: 20px; margin-bottom: 20px; }
-        .content-section ul li { margin-bottom: 8px; }
-        .method-card { border: 1px solid #eee; border-radius: 8px; padding: 25px; margin-bottom: 30px; text-align: center; transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between;} /* Added flex properties */
-        .method-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: translateY(-5px); }
-        .method-card img { max-width: 100%; height: 200px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; }
-        .method-card h4 { font-size: 1.5em; color: #007bff; margin-bottom: 10px; }
-        .method-card p { font-size: 0.95em; color: #555; }
-        .highlight-box { background-color: #f8f9fa; border-left: 5px solid #007bff; padding: 20px; margin-top: 30px; margin-bottom: 30px; }
-        .highlight-box p { margin: 0; }
-
-        .image-description { text-align: center; margin-top: 20px; margin-bottom: 40px; }
-        .image-description img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .image-description p { margin-top: 10px; font-style: italic; color: #555; }
-
-        .feature-box { text-align: center; padding: 30px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 30px; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .feature-box .icon { font-size: 3em; color: #007bff; margin-bottom: 15px; }
-        .feature-box h4 { font-size: 1.6em; color: #333; margin-bottom: 10px; }
-        .feature-box p { font-size: 1em; color: #666; }
-
-        /* FAQ 아코디언 스타일 (수정됨: 항상 펼쳐지도록) */
-        .faq-item { margin-bottom: 20px; padding: 15px; border: 1px solid #eee; border-radius: 8px; background-color: #fefefe; }
-        .faq-item h5 { font-size: 1.3em; color: #007bff; display: flex; justify-content: space-between; align-items: center; margin-bottom: 0;}
-        .faq-item h5 i { display: none; /* 토글 아이콘 숨김 */ } /* Added: Hide toggle icon */
-        .faq-item .card-body { padding-top: 10px; border-top: none; display: block; /* Added: Always show content */ }
-        .faq-item .card-body p { margin-bottom: 5px; }
-
-        #footer { background-color: #343a40; color: #f8f9fa; padding: 40px 0; text-align: center; font-size: 0.9em; }
-        #footer a { color: #f8f9fa; text-decoration: none; }
-        #footer a:hover { color: #007bff; }
-
-        .aw_quickbanner {
-            padding: 5px 0; /* 상하 패딩을 5px로 줄이고 좌우는 0으로 유지 */
-            width: 100%; /* Ensure it takes full width */
-            box-sizing: border-box; /* Include padding in the element's total width and height */
-        }
-
-        /* 퀵 배너 스타일 */
-        .quick-float-banner {
-            position: fixed;
-            right: 20px; /* 오른쪽에서 20px 떨어진 위치 */
-            top: 30%; /* 화면 중앙에 위치 */
-            transform: translateY(-50%); /* 정확히 중앙 정렬 */
-            z-index: 1050; /* 다른 요소 위에 표시 */
-            display: flex;
-            flex-direction: column;
-            gap: 15px; /* 버튼 사이 간격 */
-        }
-        .quick-float-banner .btn-quick {
-            width: 120px; /* 버튼 너비 */
-            padding: 15px 10px;
-            border-radius: 10px; /* 둥근 모서리 */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            font-size: 0.9em;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative; /* 아이콘 위치 조정을 위해 */
-            overflow: hidden; /* 내부 요소가 넘치지 않도록 */
-        }
-        .quick-float-banner .btn-quick:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        /* 전화 문의 버튼 */
-        .quick-float-banner .btn-phone {
-            background-color: #28a745; /* 녹색 계열 */
-        }
-        .quick-float-banner .btn-phone i {
-            margin-right: 5px;
-            font-size: 1.2em;
-        }
-        .quick-float-banner .btn-phone .number {
-            font-size: 0.9em;
-            display: block;
-            margin-top: 3px;
-        }
-
-        /* 카카오톡 상담 버튼 */
-        .quick-float-banner .btn-kakao {
-            background-color: #ffe812; /* 카카오 노란색 */
-            color: #3c1e1e; /* 카카오 글자색 */
-            display: flex; /* Flexbox를 사용하여 내용 정렬 */
-            flex-direction: column; /* 세로 정렬 */
-            align-items: center; /* 가로 중앙 정렬 */
-            justify-content: center; /* 세로 중앙 정렬 */
-            height: 100%; /* 부모 높이에 맞춤 */
-        }
-        .quick-float-banner .btn-kakao i {
-            font-size: 1.5em; /* 아이콘 크기 조정 */
-            margin-bottom: 5px; /* 아이콘과 텍스트 사이 간격 */
-        }
-        .quick-float-banner .btn-kakao span {
-            font-size: 0.9em; /* 텍스트 크기 조정 */
-            white-space: nowrap; /* 텍스트 줄바꿈 방지 */
-        }
-
-
-        /* 드롭다운 메뉴가 마우스 오버 시 보이도록 설정 */
-        @media (min-width: 992px) { /* 데스크탑에서만 적용 (모바일에서는 클릭 유지) */
-            .navbar-expand-lg .navbar-nav .dropdown:hover .dropdown-menu {
-                display: block;
-            }
-            .navbar-expand-lg .navbar-nav .dropdown .dropdown-toggle::after {
-                display: none; /* 드롭다운 토글 아이콘 숨기기 (선택 사항) */
-            }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 991.98px) {
-            #gnb .navbar-nav { text-align: center; }
-            #gnb .nav-item.dropdown .dropdown-menu { width: 100%; text-align: center; }
-            .hero-section { height: 300px; } /* 모바일에서 높이 조정 */
-            .hero-section .carousel-item { height: 300px; } /* 모바일에서 높이 조정 */
-            .hero-section .carousel-caption h1 { font-size: 2em; }
-            .hero-section .carousel-caption p { font-size: 1em; }
-
-
-            .content-section { padding: 40px 0; }
-            .content-section h2 { font-size: 1.8em; }
-            .content-section h3 { font-size: 1.5em; }
-            .method-card { padding: 15px; }
-            .method-card h4 { font-size: 1.2em; }
-
-            /* 모바일에서 퀵 배너 숨기기 또는 위치 조정 (선택 사항) */
-            .quick-float-banner {
-                right: 10px;
-                bottom: 10px;
-                top: auto; /* 상단 고정 해제 */
-                transform: none; /* 중앙 정렬 해제 */
-                flex-direction: row; /* 가로로 배치 */
-                width: calc(100% - 20px); /* 너비 조정 */
-                justify-content: center;
-                gap: 10px;
-            }
-            .quick-float-banner .btn-quick {
-                width: 48%; /* 너비 조정 */
-                font-size: 0.85em;
-                padding: 12px 8px;
-            }
-            .quick-float-banner .btn-kakao i {
-                font-size: 1.2em; /* 모바일에서 아이콘 크기 조정 */
-                margin-bottom: 2px;
-            }
-        }
-
-        /* ----- 추가된 CSS 스타일 ----- */
-
-        .kitchen-hood-section h2, .price-section h3, .terminology-section h3, .cleaning-process-section h3, .faq-section h3 {
-            color: #007bff;
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.2em;
-        }
-
-        .kitchen-hood-section p strong {
-            color: #007bff;
-        }
-
-        .section-image {
-            text-align: center;
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-        .section-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .price-info ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-
-        .price-info ul li {
-            background-color: #e9f5ff;
-            border: 1px solid #cce5ff;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            color: #0056b3;
-            font-weight: bold;
-        }
-
-        .highlight-text {
-            background-color: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 15px 20px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            font-size: 1.1em;
-            color: #6a4a00;
-        }
-
-        .terminology-list {
-            margin-top: 30px;
-        }
-
-        .terminology-list dt {
-            font-size: 1.2em;
-            color: #007bff;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .terminology-list dd {
-            margin-bottom: 15px;
-            padding-left: 15px;
-            border-left: 3px solid #eee;
-        }
-
-        .process-step {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .process-step:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transform: translateY(-3px);
-        }
-
-        .process-step .step-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #007bff;
-            margin-right: 20px;
-            flex-shrink: 0;
-            width: 50px;
-            text-align: center;
-        }
-
-        .process-step .step-content h4 {
-            font-size: 1.5em;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .process-step .step-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-top: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-        }
-
-        /* FAQ 섹션의 카드 헤더 및 바디 스타일 (아코디언 기능 제거에 따라 수정) */
-        .faq-accordion .card-header {
-            background-color: #f8f9fa; /* 배경색 변경 */
-            padding: 15px; /* 패딩 조정 */
-            border-bottom: 1px solid #eee; /* 하단 경계선 추가 */
-        }
-
-        .faq-accordion .card-header h5 {
-            margin: 0; /* 마진 제거 */
-            font-size: 1.2em; /* 폰트 크기 조정 */
-            color: #333; /* 폰트 색상 조정 */
-            display: flex; /* Flexbox 유지 */
-            align-items: center; /* 세로 정렬 */
-        }
-        
-        .faq-accordion .card-header h5::before { /* Q: 추가 */
-            content: "Q: ";
-            font-weight: bold;
-            color: #007bff;
-            margin-right: 8px;
-        }
-
-        .faq-accordion .card-header button {
-            display: none; /* 버튼 숨김 */
-        }
-
-        .faq-accordion .card-body {
-            border: 1px solid #eee; /* 테두리 조정 */
-            border-top: none; /* 상단 테두리 제거 */
-            padding: 20px;
-            background-color: #ffffff; /* 배경색 변경 */
-            color: #555; /* 폰트 색상 조정 */
-            display: block !important; /* 중요: 항상 보이도록 설정 */
-        }
-        
-        .faq-accordion .card-body p::before { /* A: 추가 */
-            content: "A: ";
-            font-weight: bold;
-            color: #28a745;
-            margin-right: 8px;
-        }
-
-        .faq-accordion .card {
-            margin-bottom: 15px;
-            border: 1px solid #ddd; /* 카드 테두리 조정 */
-            border-radius: 0.25rem;
-        }
-        .faq-accordion .card:last-child {
-            margin-bottom: 0;
-        }
-
-        /* NEW STYLES FOR FIRE RESTORATION */
-        .fire-restoration-section h2 {
-            font-size: 2.5em;
-            color: #dc3545; /* Red for fire */
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .fire-restoration-section h3 {
-            font-size: 2em;
-            color: #007bff;
-            margin-top: 40px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .fire-restoration-section .description-box {
-            background-color: #ffe0e0;
-            border-left: 5px solid #dc3545;
-            padding: 25px;
-            margin-bottom: 40px;
-            border-radius: 8px;
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: #333;
-        }
-
-        .fire-restoration-section .description-box strong {
-            color: #dc3545;
-        }
-
-        .cleaning-scope ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .cleaning-scope ul li {
-            background-color: #f0f8ff;
-            border: 1px solid #cce5ff;
-            border-radius: 8px;
-            padding: 15px 20px;
-            margin: 10px;
-            font-size: 1.1em;
-            color: #0056b3;
-            font-weight: bold;
-            text-align: center;
-            flex: 1 1 calc(33% - 20px); /* 3 items per row, with margin */
-            box-sizing: border-box;
-            min-width: 280px; /* Minimum width for responsiveness */
-        }
-
-        .process-flow {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Align items to the top */
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .process-flow .flow-step {
-            flex: 1 1 calc(25% - 30px); /* 4 items per row */
-            min-width: 180px; /* Minimum width for responsiveness */
-            text-align: center;
-            padding: 20px;
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-
-        .process-flow .flow-step:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-
-        .process-flow .flow-step img {
-            max-width: 100%;
-            height: 120px;
-            object-fit: contain; /* Adjust as needed */
-            margin-bottom: 15px;
-            border-radius: 5px;
-        }
-
-        .process-flow .flow-step h4 {
-            font-size: 1.3em;
-            color: #007bff;
-            margin-bottom: 10px;
-        }
-
-        .process-flow .flow-step p {
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        .process-flow .arrow {
-            font-size: 2em;
-            color: #007bff;
-            position: absolute;
-            right: -25px; /* Adjust as needed */
-            top: 50%;
-            transform: translateY(-50%);
-            display: none; /* Hide by default */
-        }
-
-        @media (min-width: 768px) {
-            .process-flow .flow-step:not(:last-child)::after {
-                content: '\f061'; /* FontAwesome right arrow */
-                font-family: 'Font Awesome 5 Free';
-                font-weight: 900;
-                position: absolute;
-                right: -35px; /* Position arrow between cards */
-                top: 50%;
-                transform: translateY(-50%);
-                color: #007bff;
-                font-size: 1.8em;
-                z-index: 1;
-            }
-        }
-        
-        @media (max-width: 767px) {
-            .process-flow {
-                flex-direction: column;
-                align-items: center;
-            }
-            .process-flow .flow-step {
-                width: 90%;
-            }
-            .process-flow .flow-step:not(:last-child)::after {
-                content: '\f063'; /* FontAwesome down arrow */
-                font-family: 'Font Awesome 5 Free';
-                font-weight: 900;
-                position: absolute;
-                bottom: -20px; /* Position arrow below card */
-                left: 50%;
-                transform: translateX(-50%);
-                color: #007bff;
-                font-size: 1.8em;
-                z-index: 1;
-            }
-        }
-
-        .cleaning-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .cleaning-grid .grid-item {
-            text-align: center;
-            background-color: #fff;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .cleaning-grid .grid-item img {
-            max-width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-
-        .cleaning-grid .grid-item p {
-            font-size: 1em;
-            color: #555;
-            font-weight: bold;
-        }
-
-        .before-after-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .before-after-item {
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .before-after-item .image-pair {
-            display: flex;
-            justify-content: space-around;
-            padding: 15px;
-            background-color: #fff;
-        }
-
-        .before-after-item .image-pair img {
-            width: 48%;
-            height: 200px; /* Fixed height for consistency */
-            object-fit: cover;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .before-after-item .image-pair .label {
-            font-weight: bold;
-            margin-top: 10px;
-            display: block;
-            color: #333;
-        }
-
-        .before-after-item .image-pair .before { color: #dc3545; }
-        .before-after-item .image-pair .after { color: #28a745; }
-
-        .before-after-item h4 {
-            text-align: center;
-            padding: 15px;
-            margin-top: 0;
-            margin-bottom: 0;
-            background-color: #007bff;
-            color: white;
-            font-size: 1.4em;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-    </style>
+	<link href="./css/styles2.css" rel="stylesheet"  />
+	
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./js/script.js"></script>	
 </head>
 <body>
 
@@ -617,7 +20,7 @@
         <div class="container">
             <nav id="gnb" class="navbar navbar-expand-lg navbar-light">
                 <h1><a class="navbar-brand" href="index.html">
-                    <img src="http://www.xn--hu1bo7j.com/img/logo.png" alt="내일도맑음 로고">
+                    <img src="http://www.오늘도맑음.com/img/logo.png" alt="내일도맑음 로고">
                 </a></h1>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -634,25 +37,25 @@
                                 <a class="dropdown-item" href="menu_1.html#duct-coating-section">닥트코팅</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown active">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSpecial" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 특수청소(후드청소)
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownSpecial">
-                                <a class="dropdown-item" href="menu_2.html">주방후드청소(덕트청소)</a>
-                                <a class="dropdown-item active" href="menu_2.html">화재복구청소(냄새제거)</a>
-                                <a class="dropdown-item" href="menu_2.html">공장설비청소</a>
-                                <a class="dropdown-item" href="menu_2.html">팬코일, 에어컨청소</a>
+                                <a class="dropdown-item" href="menu_2_1.html">주방후드청소(덕트청소)</a>
+                                <a class="dropdown-item" href="menu_2_2.html">화재복구청소(냄새제거)</a>
+                                <a class="dropdown-item" href="menu_2_3.html">공장설비청소</a>
+                                <a class="dropdown-item" href="menu_2_4.html">팬코일, 에어컨청소</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCases" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 시공사례
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownCases">
-                                <a class="dropdown-item" href="menu_3.html">공조 닥트청소</a>
-                                <a class="dropdown-item" href="menu_3.html">주방 후드청소</a>
-                                <a class="dropdown-item" href="menu_3.html">화재 냄새제거청소</a>
+                                <a class="dropdown-item active" href="menu_3.html">공조 닥트청소</a>
+                                <a class="dropdown-item" href="menu_3.html#section2">주방 후드청소</a>
+                                <a class="dropdown-item" href="menu_3.html#section3">화재 냄새제거청소</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -660,24 +63,24 @@
                                 실제고객후기
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownReviews">
-                                <a class="dropdown-item" href="menu_4.html">공조 닥트청소</a>
-                                <a class="dropdown-item" href="menu_4.html">주방 후드청소</a>
-                                <a class="dropdown-item" href="menu_4.html">화재 냄새제거청소</a>
+                                <a class="dropdown-item" href="menu_4.html#">공조 닥트청소</a>
+                                <a class="dropdown-item" href="menu_4.html#section2">주방 후드청소</a>
+                                <a class="dropdown-item" href="menu_4.html#section3">화재 냄새제거청소</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
+                        <!--li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAbout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 회사소개
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
-                                <a class="dropdown-item" href="menu_5.html">회사소개 홈</a>
-                                <a class="dropdown-item" href="menu_5.html">인사말/조직도/연혁</a>
-                                <a class="dropdown-item" href="menu_5.html">인허가사항</a>
-                                <a class="dropdown-item" href="menu_5.html">청소장비</a>
-                                <a class="dropdown-item" href="menu_5.html">공사실적</a>
-                                <a class="dropdown-item" href="menu_5.html">공조닥트 장비문의</a>
-                                <a class="dropdown-item" href="menu_5.html">주방닥트 장비문의</a>
-                                <a class="dropdown-item" href="menu_5.html">소자본 창업 컨설팅</a>
+                                <a class="dropdown-item" href="menu_5.html#">회사소개 홈</a>
+                                <a class="dropdown-item" href="menu_5.html#">인사말/조직도/연혁</a>
+                                <a class="dropdown-item" href="menu_5.html#">인허가사항</a>
+                                <a class="dropdown-item" href="menu_5.html#">청소장비</a>
+                                <a class="dropdown-item" href="menu_5.html#">공사실적</a>
+                                <a class="dropdown-item" href="menu_5.html#">공조닥트 장비문의</a>
+                                <a class="dropdown-item" href="menu_5.html#">주방닥트 장비문의</a>
+                                <a class="dropdown-item" href="menu_5.html#">소자본 창업 컨설팅</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -685,14 +88,12 @@
                                 고객센터
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownCustomer">
-                                <a class="dropdown-item" href="menu_6.html">고객센터 홈</a>
-                                <a class="dropdown-item" href="menu_6.html">빠른 견적문의</a>
-                                <a class="dropdown-item" href="menu_6.html">전국지사 연락처</a>
-                                <a class="dropdown-item" href="menu_6.html">공지사항</a>
-                                <a class="dropdown-item" href="menu_6.html">자주묻는질문(FAQ)</a>
-                                <a class="dropdown-item" href="menu_6.html">자료실</a>
+                                <a class="dropdown-item" href="menu_6.html#">고객센터 홈</a>
+                                <a class="dropdown-item" href="menu_6.html#">빠른 견적문의</a>
+                                <a class="dropdown-item" href="menu_6.html#">공지사항</a>
+                                <a class="dropdown-item" href="menu_6.html#">자주묻는질문(FAQ)</a>
                             </div>
-                        </li>
+                        </li-->
                         <li class="nav-item">
                             <a class="nav-link font-weight-bold text-primary" href="tel:010-8504-2784">T. 010-8504-2784</a>
                         </li>
@@ -707,210 +108,115 @@
     </div>
 
     <main id="main-content">
-        <section class="hero-section">
-            <div id="keyVisual" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#keyVisual" data-slide-to="0" class="active"></li>
-                    <li data-target="#keyVisual" data-slide-to="1"></li>
-                    <li data-target="#keyVisual" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://www.s-clean.co.kr/uploads/cag1408019/202111/2b331e1a4260295eb36a446e8e0a6001_crop.png?t=17d0e8074ea" class="d-block w-100" alt="특수청소 이미지 1">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h1>특수청소</h1>
-                            <p>쾌적하고 건강한 실내 공기를 위한 필수 선택!</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://www.s-clean.co.kr/uploads/cag1408019/201906/30d75f168f6113cd023c9afaf611c264_crop.png?t=16b6911d30a" class="d-block w-100" alt="특수청소 이미지 2">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h1>특수청소</h1>
-                            <p>공간을 변화시키는 전문가의 손길!</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./img/menu1_img12.jpg" class="d-block w-100" alt="특수청소 이미지 3">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h1>특수청소</h1>
-                            <p>보이지 않는 곳까지 완벽하게!</p>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#keyVisual" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#keyVisual" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </section>
-
-        <hr>
-
-        <section class="content-section fire-restoration-section">
+        <section class="content-section">
             <div class="container">
-                <h2 class="text-danger">화재복구청소 (화재냄새제거) 🔥</h2>
-                <div class="description-box">
-                    <p>화재피해로부터 새로운 출발을 도와드립니다. 당사는 <strong>화재냄새제거</strong> 및 <strong>공장/클린룸 화재복구청소</strong>를 전문으로 하고 있습니다.</p>
-                </div>
-                <div class="section-image">
-                    <img src="https://www.s-clean.co.kr/uploads/cag1408019/202111/2b331e1a4260295eb36a446e8e0a6001_crop.png?t=17d0e8074ea" alt="화재복구청소 메인 이미지">
-                </div>
+                <h2 class="mb-5">공조 닥트청소</h2>
+                <p>
+                    <strong>내일도맑음</strong>시공사진등등
+                </p>
+                <p>
+                    특히 <strong>천장에서 분진이 떨어지거나 화재 후 냄새가 지속되는 문제</strong>는 닥트 청소를 통해 근본적으로 해결해야 합니다. 
+                    내일도맑음은 20년 이상의 풍부한 노하우와 최신 청소 장비를 바탕으로 닥트 내부의 분진, 유해균, 악취의 근원을 완벽하게 제거하여 
+                    <strong>깨끗하고 안전한 공기 환경</strong>을 조성해 드립니다.
+                </p>
 
-                <h3 class="text-primary">화재복구청소의 중요성</h3>
-                <div class="description-box">
-                    <img src="https://www.s-clean.co.kr/uploads/cag1408019/202111/2b331e1a4260295eb36a446e8e0a6001_crop.png?t=17d0e8074ea" alt="화재냄새제거 이미지" class="float-right ml-4 mb-3 rounded shadow">
-                    <p>화재로 인해 손실된 건물이 화재피해로부터 빠르게 복구하여 새로운 출발을 할 수 있도록 도와드립니다.</p>
-                    <p>특히 화재 후 발생하는 <strong>유독성 냄새</strong>와 <strong>잔여 폐기물</strong> 등은 고객님의 건강과 직결되는 부분으로, 신속하고 완벽한 처리가 요구됩니다.</p>
-                    <div class="clearfix"></div>
-                </div>
-
-                <hr>
-
-                <h3 class="text-primary">청소범주</h3>
-                <div class="section-image">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrJGIg8wenee0CvEJRUYPcrV_zl_X_8VlzZg&s" alt="청소범주 대표 이미지">
-                </div>
-                <div class="cleaning-scope">
-                    <ul>
-                        <li>화재잔여물 청소 (화재 폐기물 처리)</li>
-                        <li>건물의 재사용을 위한 준비청소</li>
-                        <li>벽면 및 천장 청소</li>
-                        <li>바닥청소 / 잔여물 제거 / 고압세척</li>
-                        <li>건물 구조물 청소 / 화재냄새 제거 (피톤치드)</li>
-                        <li>건물 주변 청소 및 방역 실시</li>
-                    </ul>
+                <div class="image-description mt-2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNkI8wpxu7dxlGZ-NshaxoQ7hp_jfbXeWOBA&s" alt="천장에 덕트 연결 부위에 배관을 넣고 청소하는 모습">
+                    <p>▲ 천장 덕트 연결 부위에 전문 장비를 삽입하여 내부를 청소하는 모습</p>
                 </div>
 
-                <hr>
+                <hr class="my-5">
 
-                <h3 class="text-primary">화재청소 공정</h3>
-                <div class="process-flow">
-                    <div class="flow-step">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrMpEuZ8aBXr55J0QcIiARQKeusM9enrugtw&s" alt="분진제거">
-                        <h4>1. 분진 제거</h4>
-                        <p>화재로 발생한 미세 분진을 전문 장비로 흡입 및 제거합니다.</p>
-                    </div>
-                    <div class="flow-step">
-                        <img src="https://pimg.daara.co.kr/kidd/photo/2012/05/16/thumbs/thumb_520390_1337164924_1.jpg" alt="고압청소">
-                        <h4>2. 고압 청소</h4>
-                        <p>고압 세척을 통해 표면에 남아있는 그을음과 오염 물질을 깨끗하게 제거합니다.</p>
-                    </div>
-                    <div class="flow-step">
-                        <img src="https://cdn.kyongbuk.co.kr/news/photo/202303/2125959_566510_5438.jpg" alt="외벽청소">
-                        <h4>3. 외벽 청소</h4>
-                        <p>건물 외부 그을음 및 오염물질을 제거하여 건물의 외관을 복원합니다.</p>
-                    </div>
-                    <div class="flow-step">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTxkEKWPQM_fZN43s8Q0yP04pLYI-VPVYwfw&s" alt="닥트청소">
-                        <h4>4. 닥트 청소</h4>
-                        <p>화재로 오염된 닥트 내부를 전문적으로 청소하여 공기 흐름을 개선합니다.</p>
-                    </div>
-                    <div class="flow-step">
-                        <img src="https://www.gangnam.go.kr/upload/editor/2024/09/26/b4518ea5-8cfa-427c-b94d-64c01faf1fdd.jpg" alt="세탁지원">
-                        <h4>5. 세탁 지원</h4>
-                        <p>복구 가능한 의류 및 직물류의 세탁 및 소독을 지원합니다.</p>
-                    </div>
+                <div class="image-description mt-2">
+                    <img src="https://cdn.imweb.me/upload/S202202258080d3d12bcd1/f7b28ed492a39.jpg" alt="청소 후 7일 내 불만족 시 AS 보장 이미지">
+                    <p>▲ 내일도맑음은 청소 품질에 대한 자신감으로 7일 AS를 보장합니다.</p>
                 </div>
 
-                <div class="highlight-text mt-5">
-                    <p>화재청소는 일반 청소와 다른 전문 분야이며, 그 중에서도 <strong>그을음 제거</strong>는 난이도가 높고 가장 중요한 공정입니다. 신속히 인체에 유해한 화학물질인 분진을 제거해야 하기에 고객 불만이 가장 많이 발생하는 과정입니다.</p>
-                </div>
+                <hr class="my-5">
 
-                <hr>
+                <h3 class="text-center mb-4">내일도맑음의 닥트 청소 공법: 세대별 진화된 기술</h3>
+                <p class="text-center mb-5">
+                    닥트 청소는 단순히 눈에 보이는 먼지를 제거하는 것을 넘어, 내부 구조와 오염도에 따라 최적의 공법을 적용하는 것이 중요합니다. 
+                    내일도맑음은 다양한 현장 환경에 맞춰 가장 효과적인 청소 공법을 사용합니다.
+                </p>
 
-                <h3 class="text-primary">청소과정</h3>
-                <div class="cleaning-grid">
-                    <div class="grid-item">
-                        <img src="./img/menu2_img1.jpg" alt="청소과정 1">
-                        <p>정밀 진단 및 초기 오염물 제거</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="./img/menu2_img2.jpg" alt="청소과정 2">
-                        <p>전문 약품을 이용한 그을음 제거</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="./img/menu2_img3.jpg" alt="청소과정 3">
-                        <p>고압 세척 및 건조</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="./img/menu2_img4.jpg" alt="청소과정 4">
-                        <p>닥트 내부 전문 청소</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="./img/menu2_img5.jpg" alt="청소과정 5">
-                        <p>피톤치드 연막 소독</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="./img/menu2_img6.jpg" alt="청소과정 6">
-                        <p>최종 점검 및 마무리</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="./img/menu2_img7.jpg" alt="청소과정 7">
-                        <p>방역 및 환경 개선</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="./img/menu2_img8.jpg" alt="청소과정 8">
-                        <p>폐기물 처리</p>
-                    </div>
-                    <div class="grid-item">
-                        <img src="./img/menu1_img4.png" alt="청소과정 9">
-                        <p>고객 만족도 확인</p>
-                    </div>
-                </div>
+                <hr class="my-5">
 
-                <hr>
+                
+            </div>
+        </section>
+		<hr>
 
-                <h3 class="text-primary">청소 전후 사진</h3>
-                <div class="before-after-grid">
-                    <div class="before-after-item">
-                        <div class="image-pair">
-                            <div class="text-center">
-                                <img src="./img/menu1_img18.jpg" alt="청소 전">
-                                <span class="label before">청소 전</span>
-                            </div>
-                            <div class="text-center">
-                                <img src="./img/menu1_img19.jpg" alt="청소 후">
-                                <span class="label after">청소 후</span>
-                            </div>
+        <section id="section2" class="content-section bg-light">
+            <div class="container">
+                <h2 class="text-center">주방후드 청소</h2>
+                <div class="row align-items-center">
+                    <div class="col-md-6 order-md-2">
+                        <div class="image-description">
+                            <img src="https://pds.joongang.co.kr//news/component/htmlphoto_mmdata/201709/08/43e26e81-651b-41f2-b6de-ef07b13ecc01.jpg" alt="공조기 청소 이미지">
+                            <p>깨끗한 공조는 쾌적한 실내 환경의 시작입니다.</p>
                         </div>
-                        <h4>거실 화재 그을음 제거</h4>
                     </div>
-                    <div class="before-after-item">
-                        <div class="image-pair">
-                            <div class="text-center">
-                                <img src="./img/menu1_img18.jpg" alt="청소 전">
-                                <span class="label before">청소 전</span>
-                            </div>
-                            <div class="text-center">
-                                <img src="./img/menu1_img19.jpg" alt="청소 후">
-                                <span class="label after">청소 후</span>
-                            </div>
+                    <div class="col-md-6 order-md-2">
+                        <div class="image-description">
+                            <img src="https://cdn.wikifoodie.co.kr/news/photo/202503/1607_4316_2625.jpg" alt="집진기 청소 이미지">
+                            <p>대기중에 떠다니는 먼지, 분진, 유해 물질 등을 제거하여 공기를 정화.</p>
                         </div>
-                        <h4>주방 덕트 오염 제거</h4>
                     </div>
-                    <div class="before-after-item">
-                        <div class="image-pair">
-                            <div class="text-center">
-                                <img src="./img/menu1_img18.jpg" alt="청소 전">
-                                <span class="label before">청소 전</span>
-                            </div>
-                            <div class="text-center">
-                                <img src="./img/menu1_img19.jpg" alt="청소 후">
-                                <span class="label after">청소 후</span>
-                            </div>
+                    <div class="col-md-6 order-md-2">
+                        <div class="image-description">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmsL75EvM-J3EOvU10Nj0IW6E6VfMSbGmWRQ&s" alt="배기팬 청소 이미지">
+                            <p>실내 탈취·방습·온도 조정하여 쾌적한 실내환경의 시작입니다.</p>
                         </div>
-                        <h4>공장 설비 복구</h4>
+                    </div>					
+                    <div class="col-md-6 order-md-1">
+                        <h3>공조기/집진기/배기팬 청소</h3>
+                        <p>쾌적하고 건강한 실내환경은 깨끗한 공조에서 시작됩니다. 당사는 공조기 내 부식현상/공장, 클린룸, GMP, 빌딩의 공조기, 배기팬, 집진기 청소를 전문으로 하고 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>	
+
+		<hr>
+
+        <section id="section3" class="content-section">
+            <div class="container">
+                <h2 class="text-center">화재냄새제거</h2>
+                <p class="text-center lead">실내공기질 및 에너지손실을 정밀 진단하고 개선하는 종합 유지보수서비스 입니다.</p>
+
+                <h3 class="mt-5">화재냄새제거 작업전후 사진 비교 영역</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="image-description">
+                            <img src="https://i0.wp.com/xn--z92bt9i70fklf.com/wp-content/uploads/2025/03/KakaoTalk_20250303_064957660_03.jpg?fit=966%2C723&ssl=1" alt="닥트코팅 작업전 이미지">
+                            <p>화재냄새제거 작업 전후</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="image-description">
+                            <img src="https://www.hans-clean.com/special/images/content/fire02_1.jpg" alt="닥트코팅 작업후 이미지">
+                            <p>화재냄새제거 작업 전후</p>
+                        </div>
+                    </div>
+                </div>
+               <div class="row">
+                    <div class="col-md-6">
+                        <div class="image-description">
+                            <img src="https://m.clean-day.com/file_data/cleanday02/2018/10/30/c4ff8ad3845cfbe08b40f7561f853161.jpg" alt="닥트코팅 작업전 이미지">
+                            <p>화재냄새제거 작업 전후</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="image-description">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgmUTiQ-GKr4EgNC3TqQt8DweHhM0VKNVX-A&s" alt="닥트코팅 작업후 이미지">
+                            <p>화재냄새제거 작업 전후</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <hr>
-        
+		
     </main>
 
     <footer id="footer">
@@ -936,54 +242,5 @@
         </a>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            // Carousel auto-slide interval
-            $('#keyVisual').carousel({
-                interval: 5000 // Change slide every 5 seconds
-            });
-
-            // Inquiry submission button action
-            $('#estimateModal .btn-primary').on('click', function() {
-                alert('문의가 제출되었습니다. 빠른 시일 내에 연락드리겠습니다.');
-                $('#estimateModal').modal('hide'); // Close modal
-            });
-
-            // Dropdown menu hover effect activation
-            $('.navbar .dropdown').hover(function() {
-                $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideDown(200);
-            }, function() {
-                $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideUp(200);
-            });
-
-            // Menu activation feature
-            $('#gnb .nav-link, #gnb .dropdown-item').on('click', function(e) {
-                // Remove 'active' class from all nav items and dropdown items
-                $('#gnb .nav-item').removeClass('active');
-                $('#gnb .dropdown-item').removeClass('active');
-
-                // Add 'active' class to the clicked item and its parent nav-item
-                if ($(this).hasClass('dropdown-item')) {
-                    $(this).addClass('active');
-                    $(this).closest('.nav-item').addClass('active');
-                } else {
-                    $(this).closest('.nav-item').addClass('active');
-                }
-            });
-
-            // Activate menu item based on current URL (optional)
-            // This can maintain active state after page refresh if actual page paths are used.
-            var currentPath = window.location.pathname;
-            $('#gnb a').each(function() {
-                if ($(this).attr('href') === currentPath) {
-                    $(this).addClass('active');
-                    $(this).closest('.nav-item').addClass('active');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
