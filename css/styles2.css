@@ -599,3 +599,56 @@ body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; color: #333; p
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
+
+.company-intro-section h2 {
+	color: #2c3e50;
+	border-bottom: 2px solid #3498db;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	font-size: 1.8em;
+}
+.company-intro-section p {
+	margin-bottom: 15px;
+}
+.company-intro-section ul {
+	list-style: none;
+	padding: 0;
+	margin-bottom: 20px;
+}
+.company-intro-section ul li {
+	background: #e9f7fe;
+	margin-bottom: 8px;
+	padding: 10px 15px;
+	border-left: 5px solid #3498db;
+	border-radius: 4px;
+}
+.company-intro-section .certifications ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.company-intro-section .certifications ul li {
+	flex: 1 1 30%;
+	margin: 10px;
+	text-align: center;
+	background: #d4edda;
+	border-color: #28a745;
+}
+.company-intro-section .certifications ul li:last-child {
+	background: #fff3cd;
+	border-color: #ffc107;
+}
+/* Styles for CEO Career split into columns */
+.career-list ul {
+	list-style: none;
+	padding: 0;
+}
+.career-list ul li {
+	background: #f8f9fa;
+	margin-bottom: 8px;
+	padding: 10px 15px;
+	border-left: 3px solid #6c757d;
+	border-radius: 4px;
+	font-size: 1.0em;
+	color: #555;
+}
