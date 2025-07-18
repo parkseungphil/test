@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내일도맑음 - 화재복구청소(냄세제거)</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+	<link href="./css/styles2.css" rel="stylesheet"  />
+	
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./js/script.js"></script>	   
+</head>
+<body>
+
+    <header id="header">
+        <div class="container">
+            <nav id="gnb" class="navbar navbar-expand-lg navbar-light">
+                <h1><a class="navbar-brand" href="index.html">
+                    <img src="http://www.오늘도맑음.com/img/logo.png" alt="내일도맑음 로고">
+                </a></h1>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAirDuct" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                공조덕트청소
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownAirDuct">
+                                <a class="dropdown-item" href="menu_1.html">공조덕트청소(닥트청소)</a>
+                                <a class="dropdown-item" href="menu_1.html#air-conditioner-cleaning-section">공조기청소</a>
+                                <a class="dropdown-item" href="menu_1.html#duct-coating-section">닥트코팅</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSpecial" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                특수청소(후드청소)
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownSpecial">
+                                <a class="dropdown-item" href="menu_2_1.html">주방후드청소(덕트청소)</a>
+                                <a class="dropdown-item active" href="menu_2_2.html">화재복구청소(냄새제거)</a>
+                                <a class="dropdown-item" href="menu_2_3.html">공장설비청소</a>
+                                <a class="dropdown-item" href="menu_2_4.html">팬코일, 에어컨청소</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCases" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                시공사례
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownCases">
+                                <a class="dropdown-item" href="menu_3.html">공조 닥트청소</a>
+                                <a class="dropdown-item" href="menu_3.html#section2">주방 후드청소</a>
+                                <a class="dropdown-item" href="menu_3.html#section3">화재 냄새제거청소</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownReviews" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                실제고객후기
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownReviews">
+                                <a class="dropdown-item" href="menu_4.html#">공조 닥트청소</a>
+                                <a class="dropdown-item" href="menu_4.html#section2">주방 후드청소</a>
+                                <a class="dropdown-item" href="menu_4.html#section3">화재 냄새제거청소</a>
+                            </div>
+                        </li>
+                        <!--li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAbout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                회사소개
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
+                                <a class="dropdown-item" href="menu_5.html#">회사소개 홈</a>
+                                <a class="dropdown-item" href="menu_5.html#">인사말/조직도/연혁</a>
+                                <a class="dropdown-item" href="menu_5.html#">인허가사항</a>
+                                <a class="dropdown-item" href="menu_5.html#">청소장비</a>
+                                <a class="dropdown-item" href="menu_5.html#">공사실적</a>
+                                <a class="dropdown-item" href="menu_5.html#">공조닥트 장비문의</a>
+                                <a class="dropdown-item" href="menu_5.html#">주방닥트 장비문의</a>
+                                <a class="dropdown-item" href="menu_5.html#">소자본 창업 컨설팅</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCustomer" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                고객센터
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownCustomer">
+                                <a class="dropdown-item" href="menu_6.html#">고객센터 홈</a>
+                                <a class="dropdown-item" href="menu_6.html#">빠른 견적문의</a>
+                                <a class="dropdown-item" href="menu_6.html#">공지사항</a>
+                                <a class="dropdown-item" href="menu_6.html#">자주묻는질문(FAQ)</a>
+                            </div>
+                        </li-->
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold text-primary" href="tel:010-8504-2784">T. 010-8504-2784</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="aw_quickbanner text-center py-1 bg-info text-white">
+        <p>24시간 연중무휴 상담 가능 <a href="tel:010-8504-2784" class="text-white font-weight-bold">010-8504-2784</a></p>
+    </div>
+
+    <main id="main-content">
+        <section class="hero-section">
+            <div id="keyVisual" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#keyVisual" data-slide-to="0" class="active"></li>
+                    <li data-target="#keyVisual" data-slide-to="1"></li>
+                    <li data-target="#keyVisual" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://www.s-clean.co.kr/uploads/cag1408019/202111/2b331e1a4260295eb36a446e8e0a6001_crop.png?t=17d0e8074ea" class="d-block w-100" alt="특수청소 이미지 1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>화재복구청소(냄세제거)</h1>
+                            <p>쾌적하고 건강한 실내 공기를 위한 필수 선택!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.s-clean.co.kr/uploads/cag1408019/201906/30d75f168f6113cd023c9afaf611c264_crop.png?t=16b6911d30a" class="d-block w-100" alt="특수청소 이미지 2">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>화재복구청소(냄세제거)</h1>
+                            <p>공간을 변화시키는 전문가의 손길!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/menu1_img12.jpg" class="d-block w-100" alt="특수청소 이미지 3">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>화재복구청소(냄세제거)</h1>
+                            <p>보이지 않는 곳까지 완벽하게!</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#keyVisual" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#keyVisual" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="content-section fire-restoration-section">
+            <div class="container">
+                <h2 class="text-danger">화재복구청소 (화재냄새제거) 🔥</h2>
+                <div class="description-box">
+                    <p>화재피해로부터 새로운 출발을 도와드립니다. 당사는 <strong>화재냄새제거</strong> 및 <strong>공장/클린룸 화재복구청소</strong>를 전문으로 하고 있습니다.</p>
+                </div>
+                <div class="section-image">
+                    <img src="https://www.s-clean.co.kr/uploads/cag1408019/202111/2b331e1a4260295eb36a446e8e0a6001_crop.png?t=17d0e8074ea" alt="화재복구청소 메인 이미지">
+                </div>
+
+                <h3 class="text-primary">화재복구청소의 중요성</h3>
+                <div class="description-box">
+                    <img src="https://www.s-clean.co.kr/uploads/cag1408019/202111/2b331e1a4260295eb36a446e8e0a6001_crop.png?t=17d0e8074ea" alt="화재냄새제거 이미지" class="float-right ml-4 mb-3 rounded shadow">
+                    <p>화재로 인해 손실된 건물이 화재피해로부터 빠르게 복구하여 새로운 출발을 할 수 있도록 도와드립니다.</p>
+                    <p>특히 화재 후 발생하는 <strong>유독성 냄새</strong>와 <strong>잔여 폐기물</strong> 등은 고객님의 건강과 직결되는 부분으로, 신속하고 완벽한 처리가 요구됩니다.</p>
+                    <div class="clearfix"></div>
+                </div>
+
+                <hr>
+
+                <h3 class="text-primary">청소범주</h3>
+                <div class="section-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrJGIg8wenee0CvEJRUYPcrV_zl_X_8VlzZg&s" alt="청소범주 대표 이미지">
+                </div>
+                <div class="cleaning-scope">
+                    <ul>
+                        <li>화재잔여물 청소 (화재 폐기물 처리)</li>
+                        <li>건물의 재사용을 위한 준비청소</li>
+                        <li>벽면 및 천장 청소</li>
+                        <li>바닥청소 / 잔여물 제거 / 고압세척</li>
+                        <li>건물 구조물 청소 / 화재냄새 제거 (피톤치드)</li>
+                        <li>건물 주변 청소 및 방역 실시</li>
+                    </ul>
+                </div>
+
+                <hr>
+
+                <h3 class="text-primary">화재청소 공정</h3>
+                <div class="process-flow">
+                    <div class="flow-step">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrMpEuZ8aBXr55J0QcIiARQKeusM9enrugtw&s" alt="분진제거">
+                        <h4>1. 분진 제거</h4>
+                        <p>화재로 발생한 미세 분진을 전문 장비로 흡입 및 제거합니다.</p>
+                    </div>
+                    <div class="flow-step">
+                        <img src="https://pimg.daara.co.kr/kidd/photo/2012/05/16/thumbs/thumb_520390_1337164924_1.jpg" alt="고압청소">
+                        <h4>2. 고압 청소</h4>
+                        <p>고압 세척을 통해 표면에 남아있는 그을음과 오염 물질을 깨끗하게 제거합니다.</p>
+                    </div>
+                    <div class="flow-step">
+                        <img src="https://cdn.kyongbuk.co.kr/news/photo/202303/2125959_566510_5438.jpg" alt="외벽청소">
+                        <h4>3. 외벽 청소</h4>
+                        <p>건물 외부 그을음 및 오염물질을 제거하여 건물의 외관을 복원합니다.</p>
+                    </div>
+                    <div class="flow-step">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTxkEKWPQM_fZN43s8Q0yP04pLYI-VPVYwfw&s" alt="닥트청소">
+                        <h4>4. 닥트 청소</h4>
+                        <p>화재로 오염된 닥트 내부를 전문적으로 청소하여 공기 흐름을 개선합니다.</p>
+                    </div>
+                    <div class="flow-step">
+                        <img src="https://www.gangnam.go.kr/upload/editor/2024/09/26/b4518ea5-8cfa-427c-b94d-64c01faf1fdd.jpg" alt="세탁지원">
+                        <h4>5. 세탁 지원</h4>
+                        <p>복구 가능한 의류 및 직물류의 세탁 및 소독을 지원합니다.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-text mt-5">
+                    <p>화재청소는 일반 청소와 다른 전문 분야이며, 그 중에서도 <strong>그을음 제거</strong>는 난이도가 높고 가장 중요한 공정입니다. 신속히 인체에 유해한 화학물질인 분진을 제거해야 하기에 고객 불만이 가장 많이 발생하는 과정입니다.</p>
+                </div>
+
+                <hr>
+
+                <h3 class="text-primary">청소과정</h3>
+                <div class="cleaning-grid">
+                    <div class="grid-item">
+                        <img src="./img/menu2_img1.jpg" alt="청소과정 1">
+                        <p>정밀 진단 및 초기 오염물 제거</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="./img/menu2_img2.jpg" alt="청소과정 2">
+                        <p>전문 약품을 이용한 그을음 제거</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="./img/menu2_img3.jpg" alt="청소과정 3">
+                        <p>고압 세척 및 건조</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="./img/menu2_img4.jpg" alt="청소과정 4">
+                        <p>닥트 내부 전문 청소</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="./img/menu2_img5.jpg" alt="청소과정 5">
+                        <p>피톤치드 연막 소독</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="./img/menu2_img6.jpg" alt="청소과정 6">
+                        <p>최종 점검 및 마무리</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="./img/menu2_img7.jpg" alt="청소과정 7">
+                        <p>방역 및 환경 개선</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="./img/menu2_img8.jpg" alt="청소과정 8">
+                        <p>폐기물 처리</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="./img/menu1_img4.png" alt="청소과정 9">
+                        <p>고객 만족도 확인</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h3 class="text-primary">청소 전후 사진</h3>
+                <div class="before-after-grid">
+                    <div class="before-after-item">
+                        <div class="image-pair">
+                            <div class="text-center">
+                                <img src="./img/menu1_img18.jpg" alt="청소 전">
+                                <span class="label before">청소 전</span>
+                            </div>
+                            <div class="text-center">
+                                <img src="./img/menu1_img19.jpg" alt="청소 후">
+                                <span class="label after">청소 후</span>
+                            </div>
+                        </div>
+                        <h4>거실 화재 그을음 제거</h4>
+                    </div>
+                    <div class="before-after-item">
+                        <div class="image-pair">
+                            <div class="text-center">
+                                <img src="./img/menu1_img18.jpg" alt="청소 전">
+                                <span class="label before">청소 전</span>
+                            </div>
+                            <div class="text-center">
+                                <img src="./img/menu1_img19.jpg" alt="청소 후">
+                                <span class="label after">청소 후</span>
+                            </div>
+                        </div>
+                        <h4>주방 덕트 오염 제거</h4>
+                    </div>
+                    <div class="before-after-item">
+                        <div class="image-pair">
+                            <div class="text-center">
+                                <img src="./img/menu1_img18.jpg" alt="청소 전">
+                                <span class="label before">청소 전</span>
+                            </div>
+                            <div class="text-center">
+                                <img src="./img/menu1_img19.jpg" alt="청소 후">
+                                <span class="label after">청소 후</span>
+                            </div>
+                        </div>
+                        <h4>공장 설비 복구</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+        
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            <p><strong><span style="font-size:20px; background-color:#3498db; padding: 5px 10px; border-radius: 5px;">직통번호 : 010-8504-2784</span></strong><br />
+            <strong>*상담시간 : 24시간 (연중무휴 )​</strong></p>
+            <p>&nbsp;</p>
+            <p>
+                상호 : 내일도맑음 / 대표 : 부성석 / 사업자등록번호 : 000-00-00000<br />
+                주소 : 서울특별시 강남구 테헤란로 405호
+            </p>
+        </div>
+    </footer>
+
+    <div class="quick-float-banner">
+        <a href="tel:010-8504-2784" class="btn-quick btn-phone">
+            <i class="fas fa-phone-alt"></i> 전화문의
+            <span class="number">010-8504-2784</span>
+        </a>
+        <a href="https://pf.kakao.com/_YOUR_CHANNEL_ID_" target="_blank" class="btn-quick btn-kakao">
+            <i class="fas fa-comment"></i>
+            <span>카카오톡 문의</span>
+        </a>
+    </div>
+
+</body>
+</html>
