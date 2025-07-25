@@ -87,8 +87,8 @@
       - White theme with quick banner and mega menu.
     -->
     <header id="main-header" class="bg-white text-gray-800 shadow-md fixed top-0 left-0 right-0 z-40">
-        <!-- Quick Banner -->
-        <div class="bg-slate-100 text-center p-2 text-sm text-gray-600">
+        <!-- Quick Banner (Desktop) -->
+        <div class="hidden md:block bg-slate-100 text-center p-2 text-sm text-gray-600">
             <a href="tel:000-000-0000" class="hover:underline">문자주시면 연락드립니다. 000-000-0000</a>
         </div>
         <div id="main-nav" class="container mx-auto px-4 relative">
@@ -332,6 +332,36 @@
             </div>
         </section>
 
+        <!-- NEW Section: Certifications -->
+        <section id="certifications" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">인증 및 수상 내역</h2>
+                <p class="text-gray-600">우리의 전문성과 신뢰성을 증명합니다.</p>
+            </div>
+            <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="flex flex-col items-center text-center">
+                    <img src="https://placehold.co/150x150/E0F2FE/0C4A6E?text=ISO+9001" alt="ISO 9001 인증" class="h-32 w-32 object-contain mb-4">
+                    <h4 class="font-semibold text-gray-800">ISO 9001</h4>
+                    <p class="text-sm text-gray-500">품질 경영 시스템</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <img src="https://placehold.co/150x150/BAE6FD/0369A1?text=ISO+27001" alt="ISO 27001 인증" class="h-32 w-32 object-contain mb-4">
+                    <h4 class="font-semibold text-gray-800">ISO 27001</h4>
+                    <p class="text-sm text-gray-500">정보 보안 경영</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <img src="https://placehold.co/150x150/7DD3FC/075985?text=INNO-BIZ" alt="이노비즈 인증" class="h-32 w-32 object-contain mb-4">
+                    <h4 class="font-semibold text-gray-800">이노비즈</h4>
+                    <p class="text-sm text-gray-500">기술 혁신형 중소기업</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <img src="https://placehold.co/150x150/38BDF8/022C43?text=AWARD" alt="대한민국 기술대상" class="h-32 w-32 object-contain mb-4">
+                    <h4 class="font-semibold text-gray-800">대한민국 기술대상</h4>
+                    <p class="text-sm text-gray-500">2024년 장관상 수상</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Section 4: Portfolio Grid -->
         <section id="portfolio" class="py-16">
             <div class="text-center mb-12">
@@ -536,6 +566,11 @@
         </div>
     </footer>
 
+    <!-- Quick Banner (Mobile) -->
+    <div id="mobile-quick-banner" class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-800 text-white text-center p-3 text-sm shadow-lg z-30">
+        <a href="tel:000-000-0000" class="hover:underline">문자주시면 연락드립니다. 000-000-0000</a>
+    </div>
+
     <!-- Image Lightbox Modal -->
     <div id="lightbox" class="lightbox">
         <span id="lightbox-close" class="lightbox-close">&times;</span>
@@ -550,7 +585,22 @@
                 $('#main-content').css('padding-top', headerHeight + 20 + 'px');
             }
             adjustContentPadding();
-            $(window).on('resize', adjustContentPadding);
+            
+            // --- Adjust body padding for mobile quick banner ---
+            function adjustBodyPadding() {
+                if ($('#mobile-quick-banner').is(':visible')) {
+                    var bannerHeight = $('#mobile-quick-banner').outerHeight();
+                    $('body').css('padding-bottom', bannerHeight + 'px');
+                } else {
+                    $('body').css('padding-bottom', '0');
+                }
+            }
+            adjustBodyPadding();
+
+            $(window).on('resize', function() {
+                adjustContentPadding();
+                adjustBodyPadding();
+            });
 
             // --- Mobile Menu Toggle ---
             $('#mobile-menu-button').on('click', function() {
