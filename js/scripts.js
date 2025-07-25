@@ -65,17 +65,18 @@ $(document).ready(function(){
 			return;
 		}
 		// 이메일 제목과 본문 구성
-		const subject = encodeURIComponent('견적 문의 - '+name);
-		const body = encodeURIComponent(
+		const subject = '견적 문의 - '+name
+		const body = 
 			'이름: '+name+'\n' +
 			'이메일: '+email+'\n' +
 			'전화번호: '+phone+'\n' +
 			'문의 내용:\n'+message
-		);
+		
 
 		$('#_subject').val(subject);
 		$('#message').val(body);
 		$('#email').val(email);
+		$('#name').val(name);
 		console.log($('#_subject').val())
 		console.log($('#message').val())
 		console.log($('#email').val())
