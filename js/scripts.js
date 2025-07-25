@@ -63,8 +63,8 @@ $(document).ready(function(){
 		}
 
 		// 이메일 제목과 본문 구성
-		const subject = '견적 문의 - ${name}';
-		const body = '이름: '+name+'\n이메일: '+email+'\n전화번호: '+phone+'\n문의 내용:\n'+message+'';
+		const subject = '견적 문의 - '+name;
+		//const body = '이름: '+name+'\n이메일: '+email+'\n전화번호: '+phone+'\n문의 내용:\n'+message+'';
 
 		// 버튼 비활성화
 		$('#btnEmail').prop('disabled', true);
@@ -81,7 +81,7 @@ $(document).ready(function(){
 				phone: $('#userPhone').val(),
 				message: $('#inquiryDetails').val(),
 				_captcha: 'false',
-				_subject: '견적 문의 - '+body
+				_subject: subject
 			})
 		})
 		.then(response => response.json())
