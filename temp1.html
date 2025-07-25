@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Responsive Website - Sky Blue Theme</title>
+    <title>Modern Responsive Website - White Theme</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,6 +17,8 @@
         /* Custom styles to complement Tailwind */
         body {
             font-family: 'Noto Sans KR', sans-serif;
+            background-color: #ffffff;
+            color: #333;
         }
 
         html {
@@ -24,14 +26,14 @@
         }
 
         /* Mega Menu Styles */
-        #mega-menu {
+        #mega-menu-wrapper {
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
-            transform: translateY(-10px);
+            transform: translateY(10px);
         }
 
-        #main-nav:hover #mega-menu {
+        #main-nav:hover #mega-menu-wrapper {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
@@ -59,103 +61,111 @@
         }
     </style>
 </head>
-<body class="bg-sky-50">
+<body class="bg-white">
 
     <!-- 
       Header Section
-      - Modernized with gradient and mega menu.
+      - White theme with quick banner and mega menu.
     -->
-    <header id="main-header" class="bg-gradient-to-r from-sky-800 to-sky-900 text-white shadow-lg fixed top-0 left-0 right-0 z-40">
-        <div class="container mx-auto px-4">
+    <header id="main-header" class="bg-white text-gray-800 shadow-md fixed top-0 left-0 right-0 z-40">
+        <!-- Quick Banner -->
+        <div class="bg-slate-100 text-center p-2 text-sm text-gray-600">
+            <a href="tel:000-000-0000" class="hover:underline">문자주시면 연락드립니다. 000-000-0000</a>
+        </div>
+        <div id="main-nav" class="container mx-auto px-4 relative">
             <div class="flex justify-between items-center h-16">
-                <a href="#" class="text-2xl font-bold tracking-wider">SKY LOGO</a>
+                <a href="#" class="text-2xl font-bold tracking-wider text-sky-600">SKY LOGO</a>
                 
                 <!-- PC Navigation with Mega Menu -->
-                <nav id="main-nav" class="hidden md:block relative">
+                <nav class="hidden md:block">
                     <ul class="flex space-x-2">
-                        <li><a href="#" class="px-4 py-2 rounded-md text-sm font-medium hover:bg-sky-700 transition-colors">메뉴명 1</a></li>
-                        <li><a href="#" class="px-4 py-2 rounded-md text-sm font-medium hover:bg-sky-700 transition-colors">메뉴명 2</a></li>
-                        <li><a href="#" class="px-4 py-2 rounded-md text-sm font-medium hover:bg-sky-700 transition-colors">메뉴명 3</a></li>
-                        <li><a href="#" class="px-4 py-2 rounded-md text-sm font-medium hover:bg-sky-700 transition-colors">메뉴명 4</a></li>
-                        <li><a href="#" class="px-4 py-2 rounded-md text-sm font-medium hover:bg-sky-700 transition-colors">메뉴명 5</a></li>
+                        <li><a href="#home" class="px-4 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-sky-100 hover:text-sky-600 transition-colors">홈</a></li>
+                        <li><a href="#about" class="px-4 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-sky-100 hover:text-sky-600 transition-colors">회사소개</a></li>
+                        <li><a href="#gallery" class="px-4 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-sky-100 hover:text-sky-600 transition-colors">갤러리</a></li>
+                        <li><a href="#portfolio" class="px-4 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-sky-100 hover:text-sky-600 transition-colors">포트폴리오</a></li>
+                        <li><a href="#contact" class="px-4 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-sky-100 hover:text-sky-600 transition-colors">문의하기</a></li>
                     </ul>
+                </nav>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                    </button>
+                </div>
+            </div>
 
-                    <!-- Mega Menu Container -->
-                    <div id="mega-menu" class="absolute left-1/2 -translate-x-1/2 mt-2 w-[700px] bg-white text-black rounded-xl shadow-2xl p-8">
+            <!-- Mega Menu Container -->
+            <div id="mega-menu-wrapper" class="absolute left-0 right-0 top-full hidden md:block">
+                <div class="container mx-auto px-4">
+                    <div class="mt-2 w-full bg-white text-black rounded-xl shadow-2xl p-8 border">
                         <div class="grid grid-cols-5 gap-8">
                             <!-- Menu 1 Column -->
                             <div>
                                 <h3 class="font-bold text-gray-800 mb-4 border-b-2 border-sky-500 pb-2">메뉴명 1</h3>
                                 <ul class="space-y-2">
-                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
-                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴2</a></li>
-                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴3</a></li>
+                                    <li><a href="#" class="block text-sm text-gray-600 hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
+                                    <li><a href="#" class="block text-sm text-gray-600 hover:text-sky-600 hover:font-bold">하위메뉴2</a></li>
+                                    <li><a href="#" class="block text-sm text-gray-600 hover:text-sky-600 hover:font-bold">하위메뉴3</a></li>
                                 </ul>
                             </div>
                             <!-- Menu 2 Column -->
                             <div>
                                 <h3 class="font-bold text-gray-800 mb-4 border-b-2 border-sky-500 pb-2">메뉴명 2</h3>
                                 <ul class="space-y-2">
-                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
-                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴2</a></li>
+                                    <li><a href="#" class="block text-sm text-gray-600 hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
+                                    <li><a href="#" class="block text-sm text-gray-600 hover:text-sky-600 hover:font-bold">하위메뉴2</a></li>
                                 </ul>
                             </div>
                             <!-- Menu 3 Column -->
                             <div>
                                 <h3 class="font-bold text-gray-800 mb-4 border-b-2 border-sky-500 pb-2">메뉴명 3</h3>
                                 <ul class="space-y-2">
-                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
-                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴2</a></li>
-                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴3</a></li>
+                                    <li><a href="#" class="block text-sm text-gray-600 hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
+                                    <li><a href="#" class="block text-sm text-gray-600 hover:text-sky-600 hover:font-bold">하위메뉴2</a></li>
+                                    <li><a href="#" class="block text-sm text-gray-600 hover:text-sky-600 hover:font-bold">하위메뉴3</a></li>
                                 </ul>
                             </div>
                             <!-- Menu 4 Column -->
                             <div>
                                 <h3 class="font-bold text-gray-800 mb-4 border-b-2 border-sky-500 pb-2">메뉴명 4</h3>
                                 <ul class="space-y-2">
-                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
+                                    <li><a href="#" class="block text-sm text-gray-600 hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
                                 </ul>
                             </div>
                             <!-- Menu 5 Column -->
                             <div>
                                 <h3 class="font-bold text-gray-800 mb-4 border-b-2 border-sky-500 pb-2">메뉴명 5</h3>
                                 <ul class="space-y-2">
-                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
-                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴2</a></li>
+                                    <li><a href="#" class="block text-sm text-gray-600 hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
+                                    <li><a href="#" class="block text-sm text-gray-600 hover:text-sky-600 hover:font-bold">하위메뉴2</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                </nav>
-                
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-white focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
-                    </button>
                 </div>
             </div>
         </div>
         <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="md:hidden bg-sky-800 transform -translate-x-full fixed top-0 left-0 h-full w-64 z-50">
+        <div id="mobile-menu" class="md:hidden bg-white transform -translate-x-full fixed top-0 left-0 h-full w-64 z-50 shadow-xl border-r">
             <div class="p-4">
-                <a href="#" class="text-xl font-bold text-white mb-4 block">SKY LOGO</a>
+                <a href="#" class="text-xl font-bold text-sky-600 mb-4 block">SKY LOGO</a>
                 <ul>
                     <li class="group">
-                        <button class="w-full text-left py-2 text-white flex justify-between items-center">메뉴명 1 <span class="transform transition-transform duration-300 group-open:rotate-180">&#9662;</span></button>
-                        <ul class="mobile-submenu pl-4 bg-sky-700">
-                            <li><a href="#" class="block py-2 text-sm">하위메뉴1</a></li>
-                            <li><a href="#" class="block py-2 text-sm">하위메뉴2</a></li>
-                            <li><a href="#" class="block py-2 text-sm">하위메뉴3</a></li>
+                        <button class="w-full text-left py-2 text-gray-700 flex justify-between items-center">메뉴명 1 <span class="transform transition-transform duration-300 group-open:rotate-180">&#9662;</span></button>
+                        <ul class="mobile-submenu pl-4 bg-slate-50">
+                            <li><a href="#" class="block py-2 text-sm text-gray-600">하위메뉴1</a></li>
+                            <li><a href="#" class="block py-2 text-sm text-gray-600">하위메뉴2</a></li>
+                            <li><a href="#" class="block py-2 text-sm text-gray-600">하위메뉴3</a></li>
                         </ul>
                     </li>
                     <li class="group">
-                        <button class="w-full text-left py-2 text-white flex justify-between items-center">메뉴명 2 <span class="transform transition-transform duration-300 group-open:rotate-180">&#9662;</span></button>
-                        <ul class="mobile-submenu pl-4 bg-sky-700">
-                           <li><a href="#" class="block py-2 text-sm">하위메뉴1</a></li>
-                           <li><a href="#" class="block py-2 text-sm">하위메뉴2</a></li>
+                        <button class="w-full text-left py-2 text-gray-700 flex justify-between items-center">메뉴명 2 <span class="transform transition-transform duration-300 group-open:rotate-180">&#9662;</span></button>
+                        <ul class="mobile-submenu pl-4 bg-slate-50">
+                           <li><a href="#" class="block py-2 text-sm text-gray-600">하위메뉴1</a></li>
+                           <li><a href="#" class="block py-2 text-sm text-gray-600">하위메뉴2</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" class="block py-2 text-white">메뉴명 3</a></li>
+                    <li><a href="#" class="block py-2 text-gray-700">메뉴명 3</a></li>
                 </ul>
             </div>
         </div>
@@ -173,42 +183,41 @@
             <span class="text-xs font-bold">전화걸기</span>
         </a>
     </div>
-    <button id="to-top-button" class="fixed bottom-8 right-8 bg-gradient-to-r from-sky-600 to-sky-700 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:from-sky-700 hover:to-sky-800 transition-all duration-300 opacity-0 invisible z-50 hover:scale-110">
+    <button id="to-top-button" class="fixed bottom-8 right-8 bg-sky-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-sky-700 transition-all duration-300 opacity-0 invisible z-50 hover:scale-110">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7"></path></svg>
     </button>
 
     <main id="main-content" class="container mx-auto px-4 py-8">
         <!-- Section 1: Image Slider Hero Section -->
-        <section id="home" class="relative w-full h-96 md:h-[500px] overflow-hidden rounded-xl shadow-2xl mb-16">
+        <section id="home" class="relative w-full h-96 md:h-[500px] overflow-hidden rounded-xl shadow-lg mb-16">
             <div id="slider" class="slider-container flex h-full">
-                <!-- Slides... -->
                 <div class="w-full flex-shrink-0 h-full bg-cover bg-center relative" style="background-image: url('https://placehold.co/1200x500/87CEEB/FFFFFF?text=혁신적인+솔루션+1');">
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white p-4">
                         <h1 class="text-4xl md:text-5xl font-bold mb-4">미래를 선도하는 기술</h1>
                         <p class="text-lg mb-8">당신의 비즈니스를 한 단계 업그레이드하세요.</p>
-                        <a href="#" class="bg-gradient-to-r from-sky-500 to-sky-600 text-white font-bold py-3 px-8 rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">자세히 보기</a>
+                        <a href="#" class="bg-sky-600 text-white font-bold py-3 px-8 rounded-full hover:bg-sky-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">자세히 보기</a>
                     </div>
                 </div>
                 <div class="w-full flex-shrink-0 h-full bg-cover bg-center relative" style="background-image: url('https://placehold.co/1200x500/4682B4/FFFFFF?text=창의적인+디자인+2');">
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white p-4">
                         <h1 class="text-4xl md:text-5xl font-bold mb-4">사용자 중심의 디자인</h1>
                         <p class="text-lg mb-8">최고의 사용자 경험을 제공합니다.</p>
-                        <a href="#" class="bg-gradient-to-r from-sky-500 to-sky-600 text-white font-bold py-3 px-8 rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">포트폴리오</a>
+                        <a href="#" class="bg-sky-600 text-white font-bold py-3 px-8 rounded-full hover:bg-sky-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">포트폴리오</a>
                     </div>
                 </div>
                 <div class="w-full flex-shrink-0 h-full bg-cover bg-center relative" style="background-image: url('https://placehold.co/1200x500/B0E0E6/333333?text=완벽한+파트너십+3');">
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white p-4">
                         <h1 class="text-4xl md:text-5xl font-bold mb-4">성공을 위한 파트너십</h1>
                         <p class="text-lg mb-8">우리와 함께라면 성공은 현실이 됩니다.</p>
-                        <a href="#" class="bg-gradient-to-r from-sky-500 to-sky-600 text-white font-bold py-3 px-8 rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">문의하기</a>
+                        <a href="#" class="bg-sky-600 text-white font-bold py-3 px-8 rounded-full hover:bg-sky-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">문의하기</a>
                     </div>
                 </div>
             </div>
             <div id="slider-dots" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2"></div>
         </section>
 
-        <!-- All other sections with updated styles -->
-        <section id="about" class="bg-white p-8 md:p-12 rounded-xl shadow-xl mb-16">
+        <!-- Section 2: About Us -->
+        <section id="about" class="bg-white p-8 md:p-12 rounded-xl mb-16">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">회사 소개</h2>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="text-center">
@@ -222,27 +231,246 @@
             </div>
         </section>
         
-        <!-- Other sections remain here with similar style updates... -->
-        <!-- ... -->
+        <!-- START: 10 New Image-focused Sections -->
+
+        <!-- Section 1: Full-width Image Banner -->
+        <section class="py-16">
+            <div class="relative h-96 rounded-2xl overflow-hidden shadow-lg">
+                <img src="https://placehold.co/1200x400/0284C7/FFFFFF?text=Our+Vision" class="w-full h-full object-cover" alt="회사 비전">
+                <div class="absolute inset-0 bg-black/50 flex items-center justify-center p-8">
+                    <h2 class="text-5xl font-bold text-white text-center">혁신으로 미래를 만듭니다</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Masonry Gallery -->
+        <section id="gallery" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">우리의 공간 & 문화</h2>
+                <p class="text-gray-600">혁신과 협업이 살아 숨쉬는 SKY Corp의 일상을 소개합니다.</p>
+            </div>
+            <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+                <img class="rounded-xl shadow-lg" src="https://placehold.co/500x700/E0F2FE/0C4A6E?text=문화+1" alt="문화 1">
+                <img class="rounded-xl shadow-lg" src="https://placehold.co/500x400/BAE6FD/0369A1?text=문화+2" alt="문화 2">
+                <img class="rounded-xl shadow-lg" src="https://placehold.co/500x600/7DD3FC/075985?text=문화+3" alt="문화 3">
+                <img class="rounded-xl shadow-lg" src="https://placehold.co/500x500/38BDF8/022C43?text=문화+4" alt="문화 4">
+                <img class="rounded-xl shadow-lg" src="https://placehold.co/500x800/0EA5E9/FFFFFF?text=문화+5" alt="문화 5">
+                <img class="rounded-xl shadow-lg" src="https://placehold.co/500x550/0284C7/FFFFFF?text=문화+6" alt="문화 6">
+                <img class="rounded-xl shadow-lg" src="https://placehold.co/500x450/0369A1/FFFFFF?text=문화+7" alt="문화 7">
+                <img class="rounded-xl shadow-lg" src="https://placehold.co/500x650/075985/FFFFFF?text=문화+8" alt="문화 8">
+            </div>
+        </section>
+
+        <!-- Section 3: Team Showcase -->
+        <section id="team" class="py-16 bg-slate-50 rounded-2xl">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">최고의 전문가들</h2>
+                    <p class="text-gray-600">SKY Corp의 성공을 이끄는 전문가 팀을 만나보세요.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center group">
+                        <img class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg border-4 border-transparent group-hover:border-sky-500 transition-all" src="https://placehold.co/200x200/BAE6FD/0369A1?text=CEO" alt="팀원 사진: CEO">
+                        <h4 class="text-xl font-bold text-gray-900">김대표</h4>
+                        <p class="text-sky-600">CEO</p>
+                    </div>
+                    <div class="text-center group">
+                        <img class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg border-4 border-transparent group-hover:border-sky-500 transition-all" src="https://placehold.co/200x200/BAE6FD/0369A1?text=CTO" alt="팀원 사진: CTO">
+                        <h4 class="text-xl font-bold text-gray-900">이기술</h4>
+                        <p class="text-sky-600">CTO</p>
+                    </div>
+                    <div class="text-center group">
+                        <img class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg border-4 border-transparent group-hover:border-sky-500 transition-all" src="https://placehold.co/200x200/BAE6FD/0369A1?text=Designer" alt="팀원 사진: 디자이너">
+                        <h4 class="text-xl font-bold text-gray-900">박디자인</h4>
+                        <p class="text-sky-600">Lead Designer</p>
+                    </div>
+                    <div class="text-center group">
+                        <img class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg border-4 border-transparent group-hover:border-sky-500 transition-all" src="https://placehold.co/200x200/BAE6FD/0369A1?text=Developer" alt="팀원 사진: 개발자">
+                        <h4 class="text-xl font-bold text-gray-900">최개발</h4>
+                        <p class="text-sky-600">Senior Developer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Portfolio Grid -->
+        <section id="portfolio" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">최신 프로젝트</h2>
+                <p class="text-gray-600">고객과 함께 성공적으로 완수한 프로젝트들을 확인해보세요.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl overflow-hidden group shadow-lg hover:shadow-2xl transition-shadow duration-300 border">
+                    <img src="https://placehold.co/600x400/7DD3FC/075985?text=Project+Alpha" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" alt="프로젝트 알파">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">프로젝트 알파</h3>
+                        <p class="text-gray-600 mt-2">선도적인 이커머스 플랫폼의 완벽한 리디자인.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden group shadow-lg hover:shadow-2xl transition-shadow duration-300 border">
+                    <img src="https://placehold.co/600x400/38BDF8/022C43?text=Project+Beta" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" alt="프로젝트 베타">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">프로젝트 베타</h3>
+                        <p class="text-gray-600 mt-2">핀테크 스타트업을 위한 모바일 애플리케이션.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden group shadow-lg hover:shadow-2xl transition-shadow duration-300 border">
+                    <img src="https://placehold.co/600x400/0EA5E9/FFFFFF?text=Project+Gamma" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" alt="프로젝트 감마">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">프로젝트 감마</h3>
+                        <p class="text-gray-600 mt-2">데이터 시각화를 위한 SaaS 플랫폼.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Parallax-like Background -->
+        <section class="py-32 bg-fixed rounded-2xl my-16" style="background-image: url('https://placehold.co/1920x1080/075985/FFFFFF?text=Parallax+Effect'); background-size: cover; background-position: center;">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-5xl font-bold text-white">우리는 오늘, 미래를 만듭니다.</h2>
+            </div>
+        </section>
+
+        <!-- Section 6: Video Showcase -->
+        <section class="py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-12">SKY Corp의 기술력을 영상으로 확인하세요</h2>
+                <div class="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="https://placehold.co/1200x675/0369A1/FFFFFF?text=Video+Thumbnail" alt="비디오 썸네일" class="w-full">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="bg-white/20 backdrop-blur-sm text-white w-24 h-24 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                            <svg class="w-12 h-12 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Icon Grid with Descriptions -->
+        <section class="py-16">
+            <div class="container mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+                <div class="flex flex-col items-center">
+                    <img src="https://placehold.co/128x128/7DD3FC/075985?text=Icon+1" class="rounded-full mb-4 shadow-lg" alt="아이콘 1">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">글로벌 네트워크</h3>
+                    <p class="text-gray-600">전 세계 고객과 연결됩니다.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="https://placehold.co/128x128/38BDF8/022C43?text=Icon+2" class="rounded-full mb-4 shadow-lg" alt="아이콘 2">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">강력한 보안</h3>
+                    <p class="text-gray-600">고객의 데이터는 안전하게 보호됩니다.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="https://placehold.co/128x128/0EA5E9/FFFFFF?text=Icon+3" class="rounded-full mb-4 shadow-lg" alt="아이콘 3">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">24/7 고객지원</h3>
+                    <p class="text-gray-600">언제든지 신속하게 도와드립니다.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="https://placehold.co/128x128/0284C7/FFFFFF?text=Icon+4" class="rounded-full mb-4 shadow-lg" alt="아이콘 4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">직관적인 사용법</h3>
+                    <p class="text-gray-600">누구나 쉽게 사용할 수 있습니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Image with Text List -->
+        <section class="py-16 bg-slate-50 rounded-2xl">
+            <div class="container mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <img src="https://placehold.co/600x700/BAE6FD/0369A1?text=Checklist+Image" class="rounded-2xl shadow-lg w-full" alt="체크리스트 이미지">
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-8">당신에게 필요한 모든 것, 한 곳에.</h2>
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <div class="bg-sky-500 rounded-full p-1 mr-4 mt-1 flex-shrink-0"><svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-lg">고급 작업 관리</h4>
+                                <p class="text-gray-600">작업을 쉽게 구성, 할당 및 추적하세요.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                             <div class="bg-sky-500 rounded-full p-1 mr-4 mt-1 flex-shrink-0"><svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-lg">실시간 커뮤니케이션</h4>
+                                <p class="text-gray-600">앱을 나가지 않고 채팅, 통화, 파일 공유가 가능합니다.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                             <div class="bg-sky-500 rounded-full p-1 mr-4 mt-1 flex-shrink-0"><svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-lg">맞춤형 대시보드</h4>
+                                <p class="text-gray-600">팀의 필요에 맞게 작업 공간을 조정하세요.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Testimonials Slider -->
+        <section class="py-16" x-data="{ active: 0 }">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">고객의 목소리</h2>
+                </div>
+                <div class="relative max-w-3xl mx-auto">
+                    <div x-show="active === 0" x-transition.opacity class="bg-white p-8 rounded-2xl text-center shadow-xl border">
+                        <img src="https://placehold.co/100x100/E0F2FE/0C4A6E?text=Client+1" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-sky-500" alt="고객 1">
+                        <p class="text-lg text-gray-700 mb-4">"SKY Corp 덕분에 저희의 업무 방식이 완전히 바뀌었습니다. 생산성이 그 어느 때보다 높아졌습니다."</p>
+                        <h4 class="font-bold text-gray-900 text-xl">김민준</h4>
+                        <p class="text-gray-500">이노베이트(주) 대표</p>
+                    </div>
+                    <div x-show="active === 1" x-transition.opacity class="bg-white p-8 rounded-2xl text-center shadow-xl border" style="display: none;">
+                        <img src="https://placehold.co/100x100/E0F2FE/0C4A6E?text=Client+2" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-sky-500" alt="고객 2">
+                        <p class="text-lg text-gray-700 mb-4">"지금까지 사용해 본 최고의 SaaS 플랫폼입니다. 지원팀도 정말 환상적입니다!"</p>
+                        <h4 class="font-bold text-gray-900 text-xl">이서연</h4>
+                        <p class="text-gray-500">테크 솔루션, 프로젝트 매니저</p>
+                    </div>
+                    <button @click="active = (active - 1 + 2) % 2" class="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-12 text-gray-400 hover:text-sky-600 transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button @click="active = (active + 1) % 2" class="absolute top-1/2 -translate-y-1/2 right-0 translate-x-12 text-gray-400 hover:text-sky-600 transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Split Screen Image/Content -->
+        <section class="py-16">
+            <div class="container mx-auto">
+                <div class="md:flex rounded-2xl overflow-hidden bg-white shadow-xl border">
+                    <div class="md:w-1/2 p-12 flex flex-col justify-center">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">성장을 위해 만들어진 플랫폼</h2>
+                        <p class="text-gray-600 leading-relaxed">스타트업이든 대기업이든 SKY Corp는 당신과 함께 성장합니다. 우리의 강력한 인프라는 안정성과 성능을 보장하므로 기술적 한계에 대한 걱정 없이 비즈니스 성장에만 집중할 수 있습니다. 비교할 수 없는 확장성과 성능을 경험해보세요.</p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/800x600/075985/FFFFFF?text=Scalability" class="w-full h-full object-cover" alt="확장성">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- END: 10 New Sections -->
+        
         <!-- Section 11: Call to Action -->
-        <section class="py-16 bg-white rounded-xl shadow-xl my-16 text-center">
+        <section id="contact" class="py-16 bg-slate-50 rounded-xl my-16 text-center">
             <h2 class="text-3xl font-bold text-gray-800 mb-4">프로젝트를 시작할 준비가 되셨나요?</h2>
             <p class="text-gray-600 mb-8 max-w-2xl mx-auto">지금 바로 연락주시면 최고의 전문가가 상담해드립니다. 당신의 아이디어를 현실로 만들어보세요.</p>
-            <a href="#" class="bg-gradient-to-r from-sky-500 to-sky-600 text-white font-bold py-4 px-10 rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-lg">무료 상담 신청</a>
+            <a href="#" class="bg-sky-600 text-white font-bold py-4 px-10 rounded-full hover:bg-sky-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-lg">무료 상담 신청</a>
         </section>
-        <!-- ... -->
 
     </main>
 
-    <footer class="bg-gray-900 text-white py-10">
-        <div class="container mx-auto px-4 text-center text-gray-400">
+    <footer class="bg-slate-100 text-gray-800 py-10 border-t">
+        <div class="container mx-auto px-4 text-center text-gray-600">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
                 <p><strong>회사명:</strong> SKY Corp</p>
                 <p><strong>주소:</strong> 서울특별시 강남구</p>
                 <p><strong>전화:</strong> 000-000-0000</p>
                 <p><strong>사업자등록번호:</strong> 123-45-67890</p>
             </div>
-            <div class="mt-8 border-t border-gray-700 pt-6">
+            <div class="mt-8 border-t border-slate-200 pt-6">
                 <p>&copy; 2025 SKY Corp. All Rights Reserved.</p>
             </div>
         </div>
@@ -259,10 +487,7 @@
             const toTopButton = document.getElementById('to-top-button');
             const slider = document.getElementById('slider');
             const sliderDotsContainer = document.getElementById('slider-dots');
-            const slides = slider.children;
-            const totalSlides = slides.length;
-            let currentSlide = 0;
-
+            
             // --- Dynamic Header Padding ---
             function adjustContentPadding() {
                 const headerHeight = mainHeader.offsetHeight;
@@ -272,22 +497,18 @@
             window.addEventListener('resize', adjustContentPadding);
 
             // --- Mobile Menu Toggle ---
-            function toggleMenu() {
-                const isMenuOpen = !mobileMenu.classList.contains('-translate-x-full');
-                if (isMenuOpen) {
+            if(mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('-translate-x-full');
+                    overlay.classList.toggle('hidden');
+                });
+                overlay.addEventListener('click', () => {
                     mobileMenu.classList.add('-translate-x-full');
                     overlay.classList.add('hidden');
-                    document.body.style.overflow = '';
-                } else {
-                    mobileMenu.classList.remove('-translate-x-full');
-                    overlay.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
-                }
+                });
             }
-            mobileMenuButton.addEventListener('click', toggleMenu);
-            overlay.addEventListener('click', toggleMenu);
 
-            const mobileMenuGroups = mobileMenu.querySelectorAll('.group');
+            const mobileMenuGroups = document.querySelectorAll('#mobile-menu .group');
             mobileMenuGroups.forEach(group => {
                 const button = group.querySelector('button');
                 if (button) {
@@ -299,22 +520,28 @@
             });
 
             // --- Scroll to Top Button ---
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    toTopButton.classList.remove('opacity-0', 'invisible');
-                    toTopButton.classList.add('opacity-100', 'visible');
-                } else {
-                    toTopButton.classList.remove('opacity-100', 'visible');
-                    toTopButton.classList.add('opacity-0', 'invisible');
-                }
-            });
-            
-            toTopButton.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+            if(toTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        toTopButton.classList.remove('opacity-0', 'invisible');
+                        toTopButton.classList.add('opacity-100', 'visible');
+                    } else {
+                        toTopButton.classList.remove('opacity-100', 'visible');
+                        toTopButton.classList.add('opacity-0', 'invisible');
+                    }
+                });
+                
+                toTopButton.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
 
             // --- Image Slider Logic ---
-            if (slider && slides.length > 0) {
+            if (slider) {
+                const slides = slider.children;
+                const totalSlides = slides.length;
+                let currentSlide = 0;
+
                 function updateSlider() {
                     slider.style.transform = `translateX(-${currentSlide * 100}%)`;
                     updateDots();
@@ -328,14 +555,16 @@
                     }
                 }
                 
-                for (let i = 0; i < totalSlides; i++) {
-                    const dot = document.createElement('button');
-                    dot.classList.add('w-3', 'h-3', 'rounded-full', 'transition-colors');
-                    dot.addEventListener('click', () => {
-                        currentSlide = i;
-                        updateSlider();
-                    });
-                    sliderDotsContainer.appendChild(dot);
+                if (sliderDotsContainer) {
+                    for (let i = 0; i < totalSlides; i++) {
+                        const dot = document.createElement('button');
+                        dot.classList.add('w-3', 'h-3', 'rounded-full', 'transition-colors');
+                        dot.addEventListener('click', () => {
+                            currentSlide = i;
+                            updateSlider();
+                        });
+                        sliderDotsContainer.appendChild(dot);
+                    }
                 }
 
                 setInterval(() => {
