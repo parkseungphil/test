@@ -37,82 +37,66 @@ $(document).ready(function(){
 	});
 	
 	$('#btnEmail').on('click', function(e) {
-		// 견적문의 폼 데이터를 받아 메일 클라이언트를 여는 함수
-		
-		
-		
-		
+		e.preventDefault(); // 기본 폼 제출 방지
 
 		// 폼 데이터에서 값 추출
-		const name    = $('#userName').val();
-		const email   = $('#userEmail').val();
-		const phone   = $('#userPhone').val();
+		const name = $('#userName').val();
+		const email = $('#userEmail').val();
+		const phone = $('#userPhone').val();
 		const message = $('#inquiryDetails').val();
-		
-		if ( name == "") {
+
+		// 필수 입력 검증
+		if (!name) {
 			alert("이름은 필수입력사항입니다.");
 			$('#userName').focus();
 			return;
 		}
-		if ( phone == "") {
+		if (!phone) {
 			alert("연락처는 필수입력사항입니다.");
 			$('#userPhone').focus();
 			return;
 		}
-		if ( message == "") {
+		if (!message) {
 			alert("문의내용은 필수입력사항입니다.");
 			$('#inquiryDetails').focus();
 			return;
 		}
-		// 이메일 제목과 본문 구성
-		const subject = '견적 문의 - '+name
-		const body = 
-			'이름: '+name+'\n' +
-			'이메일: '+email+'\n' +
-			'전화번호: '+phone+'\n' +
-			'문의 내용:\n'+message
-		
 
-		$('#_subject').val(subject);
-		$('#message').val(body);
-		$('#email').val(email);
-		$('#name').val(name);
-		console.log($('#_subject').val())
-		console.log($('#message').val())
-		console.log($('#email').val())
-		
-		const form = document.getElementById('quoteForm');
-		const formData = new FormData(form);
-		
-		$('#btnEmail').attr("disable", true)
-		fetch(form.action, {
+		// 이메일 제목과 본문 구성
+		const subject = '견적 문의 - ${name}';
+		const body = '이름: '+name+'\n이메일: '+email+'\n전화번호: '+phone+'\n문의 내용:\n'+message+'';
+
+		// 버튼 비활성화
+		$('#btnEmail').prop('disabled', true);
+
+		fetch('https://formsubmit.co/ajax/gazzz79@gmail.com', {
 			method: 'POST',
-			body: formData,
 			headers: {
-				'Accept': 'application/json' // JSON 응답을 받기 위해 헤더 설정
-			}
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
+			},
+			body: JSON.stringify({
+				name: $('#userName').val(),
+				email: $('#userEmail').val(),
+				phone: $('#userPhone').val(),
+				message: $('#inquiryDetails').val(),
+				_captcha: 'false',
+				_subject: '견적 문의 - '+body
+			})
 		})
-		.then(response => {
-			// 4. 서버로부터 응답을 받습니다.
-			if (response.ok) {
-				return response.json(); // 응답이 정상이면 JSON으로 변환
-			}
-			throw new Error('네트워크 응답이 올바르지 않습니다.');
-		})
+		.then(response => response.json())
 		.then(data => {
-			// 5. 성공적으로 처리된 경우
 			console.log('Success:', data);
 			alert('메일이 성공적으로 발송되었습니다. 감사합니다!');
-			form.reset(); // 폼 초기화
+			document.getElementById('quoteForm').reset();
 		})
 		.catch(error => {
-			// 6. 에러가 발생한 경우
 			console.error('Error:', error);
 			alert('메일 발송에 실패했습니다. 다시 시도해주세요.');
 		})
 		.finally(() => {
-			$('#estimateModal').modal('hide'); // Close modal
-
+			$('#btnEmail').prop('disabled', false);
+			$('#estimateModal').modal('hide');
 		});
 	});
 	
