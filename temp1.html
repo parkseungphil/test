@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Website - Sky Blue Theme</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles to complement Tailwind */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Mega Menu Styles */
+        #mega-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            transform: translateY(-10px);
+        }
+
+        #main-nav:hover #mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Submenu Styles */
+        .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .group.open .mobile-submenu {
+            max-height: 500px; /* Adjust as needed */
+        }
+
+        /* Style for the mobile menu slide-in effect */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Image Slider Styles */
+        .slider-container {
+            transition: transform 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-sky-50">
+
+    <!-- 
+      Header Section
+      - Modernized with gradient and mega menu.
+    -->
+    <header id="main-header" class="bg-gradient-to-r from-sky-800 to-sky-900 text-white shadow-lg fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-2xl font-bold tracking-wider">SKY LOGO</a>
+                
+                <!-- PC Navigation with Mega Menu -->
+                <nav id="main-nav" class="hidden md:block relative">
+                    <ul class="flex space-x-2">
+                        <li><a href="#" class="px-4 py-2 rounded-md text-sm font-medium hover:bg-sky-700 transition-colors">메뉴명 1</a></li>
+                        <li><a href="#" class="px-4 py-2 rounded-md text-sm font-medium hover:bg-sky-700 transition-colors">메뉴명 2</a></li>
+                        <li><a href="#" class="px-4 py-2 rounded-md text-sm font-medium hover:bg-sky-700 transition-colors">메뉴명 3</a></li>
+                        <li><a href="#" class="px-4 py-2 rounded-md text-sm font-medium hover:bg-sky-700 transition-colors">메뉴명 4</a></li>
+                        <li><a href="#" class="px-4 py-2 rounded-md text-sm font-medium hover:bg-sky-700 transition-colors">메뉴명 5</a></li>
+                    </ul>
+
+                    <!-- Mega Menu Container -->
+                    <div id="mega-menu" class="absolute left-1/2 -translate-x-1/2 mt-2 w-[700px] bg-white text-black rounded-xl shadow-2xl p-8">
+                        <div class="grid grid-cols-5 gap-8">
+                            <!-- Menu 1 Column -->
+                            <div>
+                                <h3 class="font-bold text-gray-800 mb-4 border-b-2 border-sky-500 pb-2">메뉴명 1</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
+                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴2</a></li>
+                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴3</a></li>
+                                </ul>
+                            </div>
+                            <!-- Menu 2 Column -->
+                            <div>
+                                <h3 class="font-bold text-gray-800 mb-4 border-b-2 border-sky-500 pb-2">메뉴명 2</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
+                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴2</a></li>
+                                </ul>
+                            </div>
+                            <!-- Menu 3 Column -->
+                            <div>
+                                <h3 class="font-bold text-gray-800 mb-4 border-b-2 border-sky-500 pb-2">메뉴명 3</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
+                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴2</a></li>
+                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴3</a></li>
+                                </ul>
+                            </div>
+                            <!-- Menu 4 Column -->
+                            <div>
+                                <h3 class="font-bold text-gray-800 mb-4 border-b-2 border-sky-500 pb-2">메뉴명 4</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
+                                </ul>
+                            </div>
+                            <!-- Menu 5 Column -->
+                            <div>
+                                <h3 class="font-bold text-gray-800 mb-4 border-b-2 border-sky-500 pb-2">메뉴명 5</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴1</a></li>
+                                    <li><a href="#" class="block text-sm hover:text-sky-600 hover:font-bold">하위메뉴2</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="md:hidden bg-sky-800 transform -translate-x-full fixed top-0 left-0 h-full w-64 z-50">
+            <div class="p-4">
+                <a href="#" class="text-xl font-bold text-white mb-4 block">SKY LOGO</a>
+                <ul>
+                    <li class="group">
+                        <button class="w-full text-left py-2 text-white flex justify-between items-center">메뉴명 1 <span class="transform transition-transform duration-300 group-open:rotate-180">&#9662;</span></button>
+                        <ul class="mobile-submenu pl-4 bg-sky-700">
+                            <li><a href="#" class="block py-2 text-sm">하위메뉴1</a></li>
+                            <li><a href="#" class="block py-2 text-sm">하위메뉴2</a></li>
+                            <li><a href="#" class="block py-2 text-sm">하위메뉴3</a></li>
+                        </ul>
+                    </li>
+                    <li class="group">
+                        <button class="w-full text-left py-2 text-white flex justify-between items-center">메뉴명 2 <span class="transform transition-transform duration-300 group-open:rotate-180">&#9662;</span></button>
+                        <ul class="mobile-submenu pl-4 bg-sky-700">
+                           <li><a href="#" class="block py-2 text-sm">하위메뉴1</a></li>
+                           <li><a href="#" class="block py-2 text-sm">하위메뉴2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="block py-2 text-white">메뉴명 3</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="overlay" class="hidden md:hidden fixed inset-0 bg-black opacity-50 z-40"></div>
+    </header>
+
+    <!-- Floating Quick Banner & Scroll to Top Button -->
+    <div class="fixed right-4 top-1/2 transform -translate-y-1/2 z-50 flex flex-col space-y-3">
+        <a href="#" target="_blank" class="bg-yellow-400 w-24 h-24 flex flex-col items-center justify-center rounded-xl shadow-lg hover:bg-yellow-500 transition-all duration-300 hover:scale-105">
+            <svg class="w-10 h-10 mb-1 text-gray-800" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.49 0 2.9.33 4.18.91L20 22l-1.09-3.82A9.94 9.94 0 0 0 22 12c0-5.52-4.48-10-10-10zM8.5 13.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"></path></svg>
+            <span class="text-xs font-bold text-gray-800">카카오톡문의</span>
+        </a>
+        <a href="tel:000-000-0000" class="bg-green-500 text-white w-24 h-24 flex flex-col items-center justify-center rounded-xl shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-105">
+             <svg class="w-10 h-10 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <span class="text-xs font-bold">전화걸기</span>
+        </a>
+    </div>
+    <button id="to-top-button" class="fixed bottom-8 right-8 bg-gradient-to-r from-sky-600 to-sky-700 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:from-sky-700 hover:to-sky-800 transition-all duration-300 opacity-0 invisible z-50 hover:scale-110">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7"></path></svg>
+    </button>
+
+    <main id="main-content" class="container mx-auto px-4 py-8">
+        <!-- Section 1: Image Slider Hero Section -->
+        <section id="home" class="relative w-full h-96 md:h-[500px] overflow-hidden rounded-xl shadow-2xl mb-16">
+            <div id="slider" class="slider-container flex h-full">
+                <!-- Slides... -->
+                <div class="w-full flex-shrink-0 h-full bg-cover bg-center relative" style="background-image: url('https://placehold.co/1200x500/87CEEB/FFFFFF?text=혁신적인+솔루션+1');">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white p-4">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4">미래를 선도하는 기술</h1>
+                        <p class="text-lg mb-8">당신의 비즈니스를 한 단계 업그레이드하세요.</p>
+                        <a href="#" class="bg-gradient-to-r from-sky-500 to-sky-600 text-white font-bold py-3 px-8 rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">자세히 보기</a>
+                    </div>
+                </div>
+                <div class="w-full flex-shrink-0 h-full bg-cover bg-center relative" style="background-image: url('https://placehold.co/1200x500/4682B4/FFFFFF?text=창의적인+디자인+2');">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white p-4">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4">사용자 중심의 디자인</h1>
+                        <p class="text-lg mb-8">최고의 사용자 경험을 제공합니다.</p>
+                        <a href="#" class="bg-gradient-to-r from-sky-500 to-sky-600 text-white font-bold py-3 px-8 rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">포트폴리오</a>
+                    </div>
+                </div>
+                <div class="w-full flex-shrink-0 h-full bg-cover bg-center relative" style="background-image: url('https://placehold.co/1200x500/B0E0E6/333333?text=완벽한+파트너십+3');">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white p-4">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4">성공을 위한 파트너십</h1>
+                        <p class="text-lg mb-8">우리와 함께라면 성공은 현실이 됩니다.</p>
+                        <a href="#" class="bg-gradient-to-r from-sky-500 to-sky-600 text-white font-bold py-3 px-8 rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">문의하기</a>
+                    </div>
+                </div>
+            </div>
+            <div id="slider-dots" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2"></div>
+        </section>
+
+        <!-- All other sections with updated styles -->
+        <section id="about" class="bg-white p-8 md:p-12 rounded-xl shadow-xl mb-16">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">회사 소개</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center">
+                    <img src="https://placehold.co/600x400/E0F2FE/0C4A6E?text=회사+전경" alt="회사 소개 이미지" class="rounded-xl shadow-lg w-full h-auto">
+                    <p class="text-sm text-gray-500 mt-2">SKY Corp.의 회사 전경입니다.</p>
+                </div>
+                <div class="text-gray-700 text-lg leading-relaxed">
+                    <p class="mb-4">저희 SKY Corp는 고객에게 최상의 가치를 제공하기 위해 끊임없이 노력하고 있습니다. 다년간의 경험과 전문성을 바탕으로 다양한 산업 분야에서 혁신을 선도하고 있습니다.</p>
+                    <p>우리의 미션은 기술과 창의성을 결합하여 사회에 긍정적인 영향을 미치는 것입니다. 고객의 성공이 곧 우리의 성공이라는 믿음으로 함께 성장해 나갑니다.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Other sections remain here with similar style updates... -->
+        <!-- ... -->
+        <!-- Section 11: Call to Action -->
+        <section class="py-16 bg-white rounded-xl shadow-xl my-16 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">프로젝트를 시작할 준비가 되셨나요?</h2>
+            <p class="text-gray-600 mb-8 max-w-2xl mx-auto">지금 바로 연락주시면 최고의 전문가가 상담해드립니다. 당신의 아이디어를 현실로 만들어보세요.</p>
+            <a href="#" class="bg-gradient-to-r from-sky-500 to-sky-600 text-white font-bold py-4 px-10 rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-lg">무료 상담 신청</a>
+        </section>
+        <!-- ... -->
+
+    </main>
+
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+                <p><strong>회사명:</strong> SKY Corp</p>
+                <p><strong>주소:</strong> 서울특별시 강남구</p>
+                <p><strong>전화:</strong> 000-000-0000</p>
+                <p><strong>사업자등록번호:</strong> 123-45-67890</p>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6">
+                <p>&copy; 2025 SKY Corp. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Elements ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('overlay');
+            const mainHeader = document.getElementById('main-header');
+            const mainContent = document.getElementById('main-content');
+            const toTopButton = document.getElementById('to-top-button');
+            const slider = document.getElementById('slider');
+            const sliderDotsContainer = document.getElementById('slider-dots');
+            const slides = slider.children;
+            const totalSlides = slides.length;
+            let currentSlide = 0;
+
+            // --- Dynamic Header Padding ---
+            function adjustContentPadding() {
+                const headerHeight = mainHeader.offsetHeight;
+                mainContent.style.paddingTop = `${headerHeight + 20}px`;
+            }
+            adjustContentPadding();
+            window.addEventListener('resize', adjustContentPadding);
+
+            // --- Mobile Menu Toggle ---
+            function toggleMenu() {
+                const isMenuOpen = !mobileMenu.classList.contains('-translate-x-full');
+                if (isMenuOpen) {
+                    mobileMenu.classList.add('-translate-x-full');
+                    overlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                } else {
+                    mobileMenu.classList.remove('-translate-x-full');
+                    overlay.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+            mobileMenuButton.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
+
+            const mobileMenuGroups = mobileMenu.querySelectorAll('.group');
+            mobileMenuGroups.forEach(group => {
+                const button = group.querySelector('button');
+                if (button) {
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        group.classList.toggle('open');
+                    });
+                }
+            });
+
+            // --- Scroll to Top Button ---
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    toTopButton.classList.remove('opacity-0', 'invisible');
+                    toTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    toTopButton.classList.remove('opacity-100', 'visible');
+                    toTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+            
+            toTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // --- Image Slider Logic ---
+            if (slider && slides.length > 0) {
+                function updateSlider() {
+                    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    updateDots();
+                }
+
+                function updateDots() {
+                    const dots = sliderDotsContainer.children;
+                    for (let i = 0; i < dots.length; i++) {
+                        dots[i].classList.toggle('bg-white', i === currentSlide);
+                        dots[i].classList.toggle('bg-gray-400', i !== currentSlide);
+                    }
+                }
+                
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('button');
+                    dot.classList.add('w-3', 'h-3', 'rounded-full', 'transition-colors');
+                    dot.addEventListener('click', () => {
+                        currentSlide = i;
+                        updateSlider();
+                    });
+                    sliderDotsContainer.appendChild(dot);
+                }
+
+                setInterval(() => {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateSlider();
+                }, 5000);
+
+                updateSlider();
+            }
+        });
+    </script>
+</body>
+</html>
