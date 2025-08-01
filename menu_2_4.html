@@ -13,6 +13,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="./js/script.js"></script>	
+    <!-- === 추가된 부분: 이미지 높이 고정을 위한 스타일 === -->
+    <style>
+        .img-fixed-height {
+            height: 250px; /* 모든 이미지의 높이를 250px로 고정합니다. */
+            width: 100%;
+            object-fit: cover; /* 이미지가 컨테이너를 채우도록 하되, 비율은 유지합니다 (잘릴 수 있음). */
+            object-position: center; /* 이미지가 중앙에 오도록 정렬합니다. */
+        }
+    </style>
+    <!-- === 추가 끝 === -->	
 </head>
 <body>
 
@@ -45,7 +55,7 @@
                                 <a class="dropdown-item" href="menu_2_1.html">후드덕트청소</a>
                                 <!--a class="dropdown-item" href="menu_2_2.html">화재복구청소(냄새제거)</a>
                                 <a class="dropdown-item" href="menu_2_3.html">공장설비청소</a>
-                                <a class="dropdown-item" href="menu_2_4.html">팬코일, 에어컨청소</a-->
+                                <a class="dropdown-item" href="menu_2_4.html">에어컨/FCU 청소/매립덕트</a-->
                             </div>
                         </li>
                         <li class="nav-item dropdown active">
@@ -53,7 +63,7 @@
                                 에어컨/FCU 청소
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownCases">
-								<a class="dropdown-item active" href="menu_2_4.html">팬코일, 에어컨청소</a>
+								<a class="dropdown-item active" href="menu_2_4.html">에어컨/FCU 청소/매립덕트</a>
                                 <!--a class="dropdown-item" href="menu_3.html">공조 닥트청소</a>
                                 <a class="dropdown-item" href="menu_3.html#section2">주방 후드청소</a>
                                 <a class="dropdown-item" href="menu_3.html#section3">화재 냄새제거청소</a-->
@@ -160,7 +170,7 @@
 
         <section class="content-section kitchen-hood-section">
             <div class="container">
-				<h2 class="text-center">먼지와 곰팡이세균으로 오염된 에어컨과 Fcu를 세척하여 깨끗하고 쾌적한 실내공기질을 개선하고 기계의 수명을 연장합니다.</h2>
+				<h2 class="text-center">먼지와 곰팡이세균으로 오염된 에어컨과 FCU를 세척하여 깨끗하고 쾌적한 실내공기질을 개선하고 기계의 수명을 연장합니다.</h2>
 			</div>
 		</section>	
 		<section id="factory-cleaning">
@@ -244,7 +254,6 @@
                     </div>
                 </div>
                 <!-- === EDITED SECTION END === -->
-				<h3 class="mt-5 mb-3">매립덕트 청소</h3>
 				<!--div class="row">
 					<div class="col-md-6 mb-4">
 						<img src="./img/menu2/img2_3.png" class="img-fluid mb-3" alt="청소 방법 이미지">
@@ -258,48 +267,58 @@
 					</div>
 				</div-->
 
+				<!-- === 수정된 부분: 이미지에 img-fixed-height 클래스 추가 === -->
 				<div class="row">
 					<div class="col-md-4 mb-4">
-						<div class="card">
-							<img src="./img/menu2/img2_5.png" class="card-img-top" alt="청소 후 1">
+						<div class="card h-100">
+							<img src="./img/menu2/에어컨사진1번.jpg" class="card-img-top img-fixed-height" alt="분해 사진">
 							<div class="card-body">
-								<h5 class="card-title">실외기세척</h5>
+								<h5 class="card-title">분해</h5>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 mb-4">
-						<div class="card">
-							<img src="./img/menu2/img2_6.png" class="card-img-top" alt="청소 전 2">
+						<div class="card h-100">
+							<img src="./img/menu2/에어컨 부품세척 사진.jpg" class="card-img-top img-fixed-height" alt="부품세척 사진">
 							<div class="card-body">
-								<h5 class="card-title">필터세척</h5>
+								<h5 class="card-title">부품세척</h5>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 mb-4">
-						<div class="card">
-							<img src="./img/menu2/img2_7.png" class="card-img-top" alt="청소 후 2">
+						<div class="card h-100">
+							<img src="./img/menu2/img2_7.png" class="card-img-top img-fixed-height" alt="실외기청소 사진">
 							<div class="card-body">
 								<h5 class="card-title">실외기청소</h5>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 mb-4">
-						<div class="card">
-							<img src="./img/menu2/img2_8.png" class="card-img-top" alt="청소 전 3">
+						<div class="card h-100">
+							<img src="./img/menu2/에어컨FCU세척 사진.jpg" class="card-img-top img-fixed-height" alt="FCU세척 사진">
 							<div class="card-body">
-								<h5 class="card-title">공기질확인</h5>
+								<h5 class="card-title">FCU세척</h5>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 mb-4">
-						<div class="card">
-							<img src="./img/menu2/img2_9.png" class="card-img-top" alt="청소 후 3">
+						<div class="card h-100">
+							<img src="./img/menu2/에어컨스텐드형 세척.jpg" class="card-img-top img-fixed-height" alt="스탠드형세척 사진">
 							<div class="card-body">
-								<h5 class="card-title">분해세척</h5>
+								<h5 class="card-title">스탠드형세척</h5>
 							</div>
 						</div>
 					</div>
+					<div class="col-md-4 mb-4">
+						<div class="card h-100">
+							<img src="./img/menu2/에어컨 매립덕트청소.jpg" class="card-img-top img-fixed-height" alt="매립덕트청소 사진">
+							<div class="card-body">
+								<h5 class="card-title">매립덕트청소</h5>
+							</div>
+						</div>
+					</div>					
 				</div>
+				<!-- === 수정 끝 === -->
 
 				<!--h3 class="mt-5 mb-3">조건</h3-->
 

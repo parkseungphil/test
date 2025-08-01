@@ -13,6 +13,26 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="./js/script.js"></script>	
+    <style>
+        /* Custom styles for the image gallery */
+        .gallery-section h4 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        .gallery-img {
+            width: 100%;
+            height: 200px; /* Fixed height for uniformity */
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+    </style>	
 </head>
 <body>
 
@@ -45,7 +65,7 @@
                                 <a class="dropdown-item" href="menu_2_1.html">후드덕트청소</a>
                                 <!--a class="dropdown-item" href="menu_2_2.html">화재복구청소(냄새제거)</a>
                                 <a class="dropdown-item" href="menu_2_3.html">공장설비청소</a>
-                                <a class="dropdown-item" href="menu_2_4.html">팬코일, 에어컨청소</a-->
+                                <a class="dropdown-item" href="menu_2_4.html">에어컨/FCU 청소/매립덕트</a-->
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -53,7 +73,7 @@
                                 에어컨/FCU 청소
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownCases">
-								<a class="dropdown-item" href="menu_2_4.html">팬코일, 에어컨청소</a>
+								<a class="dropdown-item" href="menu_2_4.html">에어컨/FCU 청소/매립덕트</a>
                                 <!--a class="dropdown-item" href="menu_3.html">공조 닥트청소</a>
                                 <a class="dropdown-item" href="menu_3.html#section2">주방 후드청소</a>
                                 <a class="dropdown-item" href="menu_3.html#section3">화재 냄새제거청소</a-->
@@ -204,8 +224,36 @@
                     <strong>깨끗하고 안전한 공기 환경</strong>을 조성해 드립니다.
                 </p-->
 
+                <!-- START: New Image Gallery Section -->
+                <div class="gallery-section mt-5">
+                    <div class="row">
+                        <!-- Left Column -->
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <div class="col-6"><img src="./img/menu1/공조덕트사진1.png" alt="청소 전 사진 1" class="gallery-img"></div>
+                                <div class="col-6"><img src="./img/menu1/공조덕트사진2.png" alt="청소 전 사진 2" class="gallery-img"></div>
+                                <div class="col-6"><img src="./img/menu1/공조덕트사진3.jpg" alt="청소 전 사진 3" class="gallery-img"></div>
+                                <div class="col-6"><img src="./img/menu1/공조덕트사진4.jpg" alt="청소 전 사진 4" class="gallery-img"></div>
+                                <div class="col-6"><img src="./img/menu1/공조덕트사진6.jpg" alt="청소 전 사진 5"  class="gallery-img"></div>
+                                <div class="col-6"><img src="./img/menu1/공조덕트 사진7.png" alt="청소 전 사진 6"  class="gallery-img"></div>
+                            </div>
+                        </div>
+                        <!-- Right Column -->
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <div class="col-6"><img src="./img/menu1/공조덕트사진1.jpg" alt="청소 후 사진 1" class="gallery-img"></div>
+                                <div class="col-6"><img src="./img/menu1/공조덕트사진2.jpg" alt="청소 후 사진 2" class="gallery-img"></div>
+                                <div class="col-6"><img src="./img/menu1/공조덕트사진10.png" alt="청소 후 사진 3" class="gallery-img"></div>
+                                <div class="col-6"><img src="./img/menu1/공조덕트사진5.jpg" alt="청소 후 사진 4" class="gallery-img"></div>
+                                <div class="col-6"><img src="./img/menu1/공조덕트사진8.png" alt="청소 전 사진 5"  class="gallery-img"></div>
+                                <div class="col-6"><img src="./img/menu1/공조덕트사진9.png" alt="청소 전 사진 6" class="gallery-img"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: New Image Gallery Section -->
                 <div class="image-description mt-2">
-                    <img src="./img/menu1/image.png" alt="천장에 덕트 연결 부위에 배관을 넣고 청소하는 모습">
+                    <!--img src="./img/menu1/image.png" alt="천장에 덕트 연결 부위에 배관을 넣고 청소하는 모습"-->
                     <p>▲ 천장 덕트 연결 부위에 전문 장비를 삽입하여 내부를 청소하는 모습</p>
                 </div>
                 <div class="image-description mt-2">
