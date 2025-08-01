@@ -68,8 +68,8 @@ $(document).ready(function(){
 
 		// 버튼 비활성화
 		$('#btnEmail').prop('disabled', true);
-
-		fetch('https://formsubmit.co/ajax/gazzz79@gmail.com', {
+		//clean24abc@naver.com
+		fetch('https://formsubmit.co/ajax/clean24abc@naver.com', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
