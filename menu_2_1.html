@@ -20,6 +20,21 @@
             object-fit: cover; /* 이미지가 컨테이너를 채우도록 하되, 비율은 유지합니다 (잘릴 수 있음). */
             object-position: center; /* 이미지가 중앙에 오도록 정렬합니다. */
         }
+        /* === 수정된 부분: 이미지 높이 고정 스타일 === */
+        /* 다른 크기의 이미지가 들어와도 동일한 높이를 유지하고, 비율이 깨지지 않도록 object-fit 속성 사용 */
+        .img-fixed-height-lg {
+            height: 400px; /* 큰 이미지 영역의 높이 고정 */
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .img-fixed-height-sm {
+            height: 250px; /* 작은 이미지 영역의 높이 고정 */
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        /* === 수정 끝 === */		
     </style>
 </head>
 <body>
@@ -216,10 +231,16 @@
 					<!-- === 수정된 부분 끝 === -->
 				</div>	
 
-                <div class="section-image" id="aaaaa">
-                    <img src="./img/menu2/img1_11.png" alt="주방 후드 청소 전후 이미지">
-					<img src="./img/menu2/img1_12.png" alt="주방 후드 청소 전후 이미지">
+                <!-- === 수정된 부분 시작 === -->
+                <div class="row my-5" id="aaaaa">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <img src="./img/menu2/ADD/후드덕트사진1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/000000?text=이미지';" alt="주방 후드 청소 전후 이미지 1" class="img-fluid rounded shadow img-fixed-height-lg">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="./img/menu2/ADD/후드덕트사진2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/000000?text=이미지';" alt="주방 후드 청소 전후 이미지 2" class="img-fluid rounded shadow img-fixed-height-lg">
+                    </div>
                 </div>
+                <!-- === 수정된 부분 끝 === -->				
                 <!--div class="row my-5" id="aaaaa">
                     <div class="col-md-6 mb-3 mb-md-0">
                         <img src="./img/menu2/img1_11.png" alt="주방 후드 청소 전 이미지" >
@@ -234,13 +255,13 @@
                     <!-- === 수정된 부분: 이미지 그룹을 Bootstrap Grid로 변경하고 img-fluid 클래스 추가 === -->
                     <div class="row text-center mt-4">
                         <div class="col-md-4 mb-4">
-                            <img src="./img/menu2/img1_1.png" alt="문제점별 청소 유형 이미지" class="img-fluid rounded shadow img-fixed-height">
+                            <img src="./img/menu2/ADD/후드덕트사진3.jpg" alt="문제점별 청소 유형 이미지" class="img-fluid rounded shadow img-fixed-height">
                         </div>
                         <div class="col-md-4 mb-4">
-                            <img src="./img/menu2/img1_2.png" alt="후렉시블 자바라 호수 사진" class="img-fluid rounded shadow img-fixed-height">
+                            <img src="./img/menu2/ADD/후드덕트사진4.jpg" alt="후렉시블 자바라 호수 사진" class="img-fluid rounded shadow img-fixed-height">
                         </div>
                         <div class="col-md-4 mb-4">
-                            <img src="./img/menu2/img1_3.png" alt="후렉시블 자바라 호수 사진" class="img-fluid rounded shadow img-fixed-height">
+                            <img src="./img/menu2/ADD/후드덕트사진5.jpg" alt="후렉시블 자바라 호수 사진" class="img-fluid rounded shadow img-fixed-height">
                         </div>
                         <div class="col-12"><p>▲ 후드청소</p></div>
                     </div>
@@ -250,23 +271,23 @@
                             <img src="./img/menu2/후드덕트사진1.jpg" alt="배기팬 사진" class="img-fluid rounded shadow img-fixed-height">
                         </div>
                         <div class="col-md-4 mb-4">
-                            <img src="./img/menu2/후드덕트사진2.jpg" alt="후렉시블 자바라 호수 사진" class="img-fluid rounded shadow img-fixed-height">
+                            <img src="./img/menu2/ADD/후드덕트사진6.jpg" alt="후렉시블 자바라 호수 사진" class="img-fluid rounded shadow img-fixed-height">
                         </div>
                         <div class="col-md-4 mb-4">
-                            <img src="./img/menu2/img1_6.png" alt="후렉시블 자바라 호수 사진" class="img-fluid rounded shadow img-fixed-height">
+                            <img src="./img/menu2/ADD/후드덕트사진7.jpg" alt="후렉시블 자바라 호수 사진" class="img-fluid rounded shadow img-fixed-height">
                         </div>
                         <div class="col-12"><p>▲ 덕트청소</p></div>
                     </div>
 
                     <div class="row text-center mt-4">
                         <div class="col-md-4 mb-4">
-                            <img src="./img/menu2/img1_7.png" alt="후렉시블 자바라 호수 사진" class="img-fluid rounded shadow img-fixed-height">
+                            <img src="./img/menu2/ADD/후드덕트사진8.jpg" alt="후렉시블 자바라 호수 사진" class="img-fluid rounded shadow img-fixed-height">
                         </div>
                         <div class="col-md-4 mb-4">
-                            <img src="./img/menu2/img1_8.png" alt="후렉시블 자바라 호수 사진" class="img-fluid rounded shadow img-fixed-height">
+                            <img src="./img/menu2/ADD/후드덕트사진9.jpg" alt="후렉시블 자바라 호수 사진" class="img-fluid rounded shadow img-fixed-height">
                         </div>
                         <div class="col-md-4 mb-4">
-                            <img src="./img/menu2/img1_9.png" alt="후렉시블 자바라 호수 사진" class="img-fluid rounded shadow img-fixed-height">
+                            <img src="./img/menu2/ADD/후드덕트사진10.jpg" alt="후렉시블 자바라 호수 사진" class="img-fluid rounded shadow img-fixed-height">
                         </div>
                         <div class="col-12"><p>▲ 필터청소</p></div>
                     </div>
